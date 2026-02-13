@@ -3,7 +3,7 @@ import Link from "next/link"
 import { motion, useScroll, useTransform, useSpring } from "framer-motion"
 import { useRef } from "react"
 import { Button } from "./ui/Button"
-import { ArrowRight, Code, Grid, Terminal } from "lucide-react"
+import { ArrowRight, Code, Grid, Terminal, Github } from "lucide-react"
 
 export function Hero() {
     const ref = useRef<HTMLDivElement>(null)
@@ -39,7 +39,7 @@ export function Hero() {
             <div className="relative z-10 w-full max-w-6xl mx-auto px-6 flex flex-col items-center text-center">
 
                 {/* Badge */}
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
@@ -47,29 +47,35 @@ export function Hero() {
                 >
                     <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse"></span>
                     v2.0 Now Available
-                </motion.div>
+                </motion.div> */}
 
                 {/* Main Heading */}
-                <motion.h1
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.1 }}
-                    className="font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight text-foreground mb-6 leading-[0.9] max-w-4xl"
-                >
-                    Build <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-violet-500">Faster.</span> <br />
-                    Design <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-fuchsia-500">Better.</span>
-                </motion.h1>
+   <motion.h1
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, delay: 0.1 }}
+    className="font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[0.92] max-w-4xl mx-auto"
+  >
+    Build{" "}
+<span className="relative inline-block">
+  <span className="relative z-10">Faster.</span>
+  <span className="absolute inset-0 blur-2xl opacity-40 bg-violet-500 -z-10" />
+</span>
 
-                {/* Subheading - Clean Sans */}
-                <motion.p
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.2 }}
-                    className="text-lg md:text-xl text-neutral-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light"
-                >
-                    The component library that feels like it's from the future.
-                    Standardized for scalability, optimized for performance, and designed to impress.
-                </motion.p>
+    <br />
+    Design Better.
+  </motion.h1>
+
+  {/* Subheading */}
+  <motion.p
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: 0.25 }}
+    className="mt-6 mb-6 text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed font-normal"
+  >
+    Production-ready interface sections <br className="hidden sm:block" />
+    you can ship today.
+  </motion.p>
 
                 {/* CTAs - Google Material 3 Style */}
                 <motion.div
@@ -84,9 +90,9 @@ export function Hero() {
                         </Button>
                     </Link>
 
-                    <Link href="https://github.com/vibeui" target="_blank" className="w-full sm:w-auto">
+                    <Link href="https://github.com/nijil71/Vibe-UI" target="_blank" className="w-full sm:w-auto">
                         <Button variant="secondary" size="lg" className="h-12 px-8 rounded-full bg-white/5 hover:bg-white/10 border-white/10 font-medium text-base w-full sm:w-auto">
-                            <Terminal className="mr-2 w-4 h-4" /> npm i vibe-ui
+                            <Github className="mr-2 w-4 h-4" /> Github
                         </Button>
                     </Link>
                 </motion.div>

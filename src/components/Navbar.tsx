@@ -34,9 +34,9 @@ export function Navbar() {
                 </Link>
 
                 <div className="hidden md:flex items-center gap-1">
-                    <NavLink href="/components">Components</NavLink>
-                    <NavLink href="/templates">Templates</NavLink>
-                    <NavLink href="/docs">Scale</NavLink>
+                    <NavLink href="#components">Components</NavLink>
+                    {/* <NavLink href="/templates">Templates</NavLink>
+                    <NavLink href="/docs">Scale</NavLink> */}
 
                     <div className="w-[1px] h-6 bg-white/10 mx-4" />
 
