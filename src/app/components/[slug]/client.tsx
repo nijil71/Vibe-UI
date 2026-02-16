@@ -19,7 +19,7 @@ export function ComponentDetailClient({ slug }: { slug: string }) {
 
     return (
         <div className="min-h-screen pt-24 pb-24 px-6 max-w-7xl mx-auto">
-            <Link href="/#components" className="group inline-flex items-center text-sm text-white/50 hover:text-white mb-8 transition-colors">
+            <Link href="/components" className="group inline-flex items-center text-sm text-white/50 hover:text-white mb-8 transition-colors">
                 <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
                 Back to Components
             </Link>

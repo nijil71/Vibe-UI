@@ -23,25 +23,26 @@ export function Navbar() {
             )}
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-                <Link href="/" className="group relative flex items-center gap-2">
-                    {/* Google-esq clean Logo */}
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-shadow duration-300">
+                <Link href="/" className="group flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-neutral-100 text-neutral-900 flex items-center justify-center font-semibold text-sm">
                         V
                     </div>
-                    <span className="text-xl font-bold tracking-tight text-foreground transition-all duration-300">
+
+                    <span className="text-xl font-semibold tracking-tight text-white">
                         VibeUI
                     </span>
                 </Link>
 
+
                 <div className="hidden md:flex items-center gap-1">
-                    <NavLink href="#components">Components</NavLink>
+                    <NavLink href="/components">Components</NavLink>
                     {/* <NavLink href="/templates">Templates</NavLink>
                     <NavLink href="/docs">Scale</NavLink> */}
 
                     <div className="w-[1px] h-6 bg-white/10 mx-4" />
 
                     <Link
-                        href="https://github.com"
+                        href="https://github.com/nijil71/Vibe-UI"
                         target="_blank"
                         className="text-sm font-medium text-white/50 hover:text-white transition-colors px-4 py-2 rounded-full hover:bg-white/5"
                     >

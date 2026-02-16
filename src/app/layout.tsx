@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
-import { BackgroundNoise } from "@/components/ui/BackgroundNoise";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +33,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background text-foreground selection:bg-blue-500/30 selection:text-white`}
       >
-        <BackgroundNoise />
         <Navbar />
         <main className="flex flex-col min-h-screen">
           {children}

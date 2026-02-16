@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <ComponentGrid />
+      <ComponentGrid limit={6} />
 
       <footer className="w-full py-20 px-6 bg-neutral-950 border-t border-white/5">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">

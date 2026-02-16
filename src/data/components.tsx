@@ -4,6 +4,12 @@ import { PricingTable } from "@/components/sections/PricingTable"
 import { ApiQuickstart } from "@/components/sections/ApiQuickstart"
 import { TeamSection } from "@/components/sections/TeamSection"
 import { WorkflowSteps } from "@/components/sections/WorkflowSteps"
+import { Testimonials } from "@/components/sections/Testimonials"
+import { SecuritySection } from "@/components/sections/SecuritySection"
+import { InfraSection } from "@/components/sections/InfraSection"
+import { GlobalDistribution } from "@/components/sections/GlobalDistribution"
+import { IntegrationsSection } from "@/components/sections/IntegrationsSection"
+import { BlogLayout } from "@/components/sections/BlogLayout"
 
 export const COMPONENTS = {
   "dashboard-stats": {
@@ -496,6 +502,434 @@ export function WorkflowSteps() {
               {step.desc}
             </p>
           </div>
+        ))}
+      </div>
+    </div>
+  )
+}`
+  },
+  "testimonials": {
+    title: "Testimonial Wall",
+    description: "Social proof section with refined avatars, star ratings, and floating feedback cards. Perfect for building trust and credibility.",
+    component: Testimonials,
+    code: `"use client"
+import React from "react"
+import { motion } from "framer-motion"
+import { Star, Quote } from "lucide-react"
+
+const testimonials = [
+  {
+    name: "Alex Rivera",
+    role: "Senior Engineer at Vercel",
+    content: "The attention to detail in these sections is insane. We've integrated the dashboard stats into our internal tools and it saved us weeks of development time.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex"
+  },
+  {
+    name: "Sarah Chen",
+    role: "Product Designer at Figma",
+    content: "Finally, a UI library that doesn't look like a generic template. The spacing, typography, and motion feel premium and high-end.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=SarahC"
+  },
+  {
+    name: "James Wilson",
+    role: "CTO at Stripe",
+    content: "Implementation was a breeze. The code is clean, modular, and easy to extend. It's now our go-to for rapid prototyping.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=James"
+  }
+]
+
+export function Testimonials() {
+  return (
+    <div className="w-full max-w-7xl mx-auto py-24 px-6">
+      <div className="flex flex-col items-center text-center mb-20">
+        <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center border border-blue-500/20 mb-6">
+          <Quote className="w-6 h-6 text-blue-400" />
+        </div>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Trusted by experts.</h2>
+        <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
+          See what world-class engineers and designers are saying about VibeUI.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {testimonials.map((t, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1 }}
+            viewport={{ once: true }}
+            className="p-8 rounded-3xl bg-neutral-900 border border-white/5 relative group hover:border-blue-500/30 transition-all"
+          >
+            <div className="flex gap-1 mb-6">
+              {[1, 2, 3, 4, 5].map((s) => (
+                <Star key={s} className="w-4 h-4 fill-blue-500 text-blue-500" />
+              ))}
+            </div>
+            <p className="text-white/80 text-lg leading-relaxed mb-8 italic">
+              "\${t.content}"
+            </p>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full overflow-hidden border border-white/10">
+                <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
+              </div>
+              <div>
+                <h4 className="text-white font-bold">{t.name}</h4>
+                <p className="text-neutral-500 text-xs">{t.role}</p>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  )
+}`
+  },
+  "security": {
+    title: "Security & Compliance",
+    description: "Trust-building section detailing data protection, global compliance standards, and infrastructure security protocols.",
+    component: SecuritySection,
+    code: `"use client"
+import React from "react"
+import { motion } from "framer-motion"
+import { Shield, Lock, Eye, FileCheck, CheckCircle2 } from "lucide-react"
+
+const features = [
+  {
+    title: "SOC2 Type II Certified",
+    desc: "Rigorous independent audits of our security, availability, and confidentiality.",
+    icon: FileCheck,
+    color: "blue"
+  },
+  {
+    title: "AES-256 Encryption",
+    desc: "Data is encrypted at rest and in transit using industry-standard protocols.",
+    icon: Lock,
+    color: "violet"
+  },
+  {
+    title: "RBAC Controls",
+    desc: "Granular access controls to ensure only authorized personnel have access.",
+    icon: Eye,
+    color: "emerald"
+  }
+]
+
+export function SecuritySection() {
+  return (
+    <div className="w-full max-w-7xl mx-auto py-24 px-6 overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div>
+          <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-[0.9]">
+            Security you can <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">depend on.</span>
+          </h2>
+          <p className="text-neutral-400 text-lg mb-12 leading-relaxed max-w-lg">
+            We take security seriously. Our infrastructure is built from the ground up to protect your most sensitive data.
+          </p>
+
+          <div className="space-y-4">
+            {["GDPR & CCPA Compliant", "99.99% Uptime SLA", "24/7 Security Monitoring"].map((item) => (
+              <div key={item} className="flex items-center gap-3">
+                <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                </div>
+                <span className="text-white/80 font-medium">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative">
+          <div className="absolute inset-0 bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+          <div className="grid grid-cols-1 gap-6 relative">
+            {features.map((f, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="group p-6 rounded-3xl bg-neutral-900/50 border border-white/5 backdrop-blur-xl flex gap-6 items-center hover:bg-neutral-800/50 transition-all"
+              >
+                <div className={\`p-4 rounded-2xl bg-neutral-950 border border-white/5 group-hover:border-\${f.color}-500/30 transition-all\`}>
+                  <f.icon className={\`w-6 h-6 text-\${f.color}-400\`} />
+                </div>
+                <div>
+                  <h3 className="text-white font-bold text-lg mb-1">{f.title}</h3>
+                  <p className="text-neutral-500 text-sm max-w-xs">{f.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}`
+  },
+  "infra": {
+    title: "System Infrastructure",
+    description: "Multi-point technical breakdown of your cloud infrastructure, showing distribution, latency, and hardware specs.",
+    component: InfraSection,
+    code: `"use client"
+import React from "react"
+import { motion } from "framer-motion"
+import { Cpu, Database, Cloud, Zap, Server, Network } from "lucide-react"
+
+export function InfraSection() {
+  return (
+    <div className="w-full max-w-7xl mx-auto py-24 px-6">
+      <div className="text-center mb-24">
+        <h2 className="text-4xl md:text-7xl font-black text-white mb-6 tracking-tighter uppercase italic">Infrastructure</h2>
+        <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full" />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1px bg-white/5 border border-white/5 rounded-3xl overflow-hidden shadow-2xl">
+        {[
+          { label: "Edge Compute", value: "300+", sub: "Regional Nodes", icon: Cloud },
+          { label: "Database", value: "Vector", sub: "Built-in Support", icon: Database },
+          { label: "CPU Power", value: "Nitro", sub: "Hardware Acceleration", icon: Cpu },
+          { label: "Latency", value: "<50ms", sub: "Global Average", icon: Zap },
+          { label: "Reliability", value: "99.99%", sub: "Guaranteed Uptime", icon: Server },
+          { label: "Network", value: "Tier 1", sub: "Fibre Backbone", icon: Network },
+        ].map((item, i) => (
+          <div key={i} className="bg-neutral-950 p-12 group hover:bg-neutral-900 transition-colors">
+            <div className="mb-8 p-3 w-fit rounded-xl bg-white/5 border border-white/10 group-hover:border-blue-500/30 transition-all">
+              <item.icon className="w-6 h-6 text-neutral-400 group-hover:text-blue-400 transition-colors" />
+            </div>
+            <p className="text-neutral-500 text-sm font-bold uppercase tracking-widest mb-2">{item.label}</p>
+            <h3 className="text-4xl font-black text-white mb-2 tracking-tight group-hover:text-blue-500 transition-colors">{item.value}</h3>
+            <p className="text-neutral-600 text-sm font-medium">{item.sub}</p>
+          </div>
+        ))}
+      </div>
+      
+      <div className="mt-20 p-12 rounded-3xl bg-blue-600/5 border border-blue-500/20 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_0%_0%,rgba(59,130,246,0.1),transparent)] pointer-events-none" />
+        <div className="relative z-10">
+          <h4 className="text-2xl font-bold text-white mb-2">Ready to scale?</h4>
+          <p className="text-blue-400/60 font-medium">Join 2,000+ companies building on our network.</p>
+        </div>
+        <button className="relative z-10 px-8 py-4 bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-500 transition-all shadow-xl shadow-blue-500/20 active:scale-95">
+          Get Started Now
+        </button>
+      </div>
+    </div>
+  )
+}`
+  },
+  "global-edge": {
+    title: "Global Distribution",
+    description: "Interactive globe and map visualization showcasing regional presence, network live-sync, and edge computing nodes.",
+    component: GlobalDistribution,
+    code: `"use client"
+import React from "react"
+import { motion } from "framer-motion"
+import { Activity, Globe, MapPin, Zap } from "lucide-react"
+
+export function GlobalDistribution() {
+  return (
+    <div className="w-full max-w-7xl mx-auto py-24 px-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+        <div className="order-2 lg:order-1 relative">
+          <div className="absolute inset-0 bg-blue-500/10 blur-[150px] rounded-full pointer-events-none" />
+          <div className="relative aspect-square rounded-3xl border border-white/5 bg-neutral-900/50 p-12 overflow-hidden flex items-center justify-center">
+             <Globe className="w-64 h-64 text-white/5 animate-spin-slow" />
+             {[
+               { t: "10%", l: "20%", d: 0.2 },
+               { t: "40%", l: "70%", d: 0.5 },
+               { t: "60%", l: "30%", d: 0.8 },
+               { t: "20%", l: "80%", d: 1.1 },
+               { t: "80%", l: "60%", d: 1.4 },
+             ].map((pos, i) => (
+               <motion.div
+                 key={i}
+                 initial={{ scale: 0, opacity: 0 }}
+                 whileInView={{ scale: 1, opacity: 1 }}
+                 transition={{ delay: pos.d, duration: 0.5 }}
+                 className="absolute"
+                 style={{ top: pos.t, left: pos.l }}
+               >
+                 <div className="relative">
+                   <div className="absolute inset-0 bg-blue-500 rounded-full animate-ping opacity-20" />
+                   <div className="w-4 h-4 rounded-full bg-blue-500 border-4 border-neutral-900 z-10 relative" />
+                 </div>
+               </motion.div>
+             ))}
+             <div className="absolute bottom-12 left-12 p-4 rounded-2xl bg-neutral-950/80 border border-white/10 backdrop-blur-md">
+                <div className="flex items-center gap-3">
+                   <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                   <span className="text-xs font-bold text-white uppercase tracking-widest">Network Live</span>
+                </div>
+             </div>
+          </div>
+        </div>
+        <div className="order-1 lg:order-2">
+           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-bold text-blue-400 uppercase tracking-widest mb-8">
+             Edge Network
+           </div>
+           <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">Zero latency, <br />worldwide.</h2>
+           <p className="text-neutral-400 text-lg mb-12 leading-relaxed">
+             Our Tier-1 network spans across 30+ countries and 5 continents, bringing your content closer to your users than ever before.
+           </p>
+           <div className="grid grid-cols-2 gap-8">
+              <div>
+                 <Activity className="w-6 h-6 text-blue-400 mb-4" />
+                 <h4 className="text-white font-bold mb-2">High Availability</h4>
+                 <p className="text-neutral-500 text-sm">Automated failover and redundancy at every layer of the stack.</p>
+              </div>
+              <div>
+                 <Zap className="w-6 h-6 text-amber-400 mb-4" />
+                 <h4 className="text-white font-bold mb-2">Instant Purge</h4>
+                 <p className="text-neutral-500 text-sm">Global cache invalidation in less than 300 milliseconds.</p>
+              </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  )
+}`
+  },
+  "integrations": {
+    title: "Product Integrations Hub",
+    description: "Cloud connection hub for mapping your stack's ecosystem, featuring interactive app nodes and ecosystem sync visualization.",
+    component: IntegrationsSection,
+    code: `"use client"
+import React from "react"
+import { motion } from "framer-motion"
+import { Zap, Github, Slack, Figma, Database, MessageSquare, Plus } from "lucide-react"
+
+const integrations = [
+  { name: "GitHub", icon: Github, color: "white" },
+  { name: "Slack", icon: Slack, color: "blue" },
+  { name: "Figma", icon: Figma, color: "violet" },
+  { name: "PostgreSQL", icon: Database, color: "emerald" },
+  { name: "Discord", icon: MessageSquare, color: "indigo" },
+  { name: "Automation", icon: Zap, color: "amber" },
+]
+
+export function IntegrationsSection() {
+  return (
+    <div className="w-full max-w-7xl mx-auto py-24 px-6 overflow-hidden">
+      <div className="text-center mb-24">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Fits right in.</h2>
+        <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
+          Connect your existing workflow with hundreds of native integrations and a powerful developer API.
+        </p>
+      </div>
+      <div className="relative flex flex-col items-center">
+        <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+           <div className="w-[800px] h-[800px] rounded-full border border-white/20 scale-75" />
+           <div className="absolute w-[600px] h-[600px] rounded-full border border-white/20" />
+           <div className="absolute w-[400px] h-[400px] rounded-full border border-white/20" />
+        </div>
+        <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 w-full">
+          {integrations.map((app, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="group flex flex-col items-center gap-4 text-center cursor-pointer"
+            >
+              <div className={\`w-20 h-20 rounded-3xl bg-neutral-900 border border-white/10 flex items-center justify-center group-hover:bg-neutral-800 transition-all group-hover:border-blue-500/30 group-hover:-translate-y-2\`}>
+                 <app.icon className={\`w-8 h-8 text-neutral-400 group-hover:text-blue-500 transition-colors\`} />
+              </div>
+              <div>
+                <span className="text-white font-bold block text-sm">{app.name}</span>
+                <span className="text-neutral-500 text-[10px] uppercase font-bold tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Connect</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-20 flex flex-col items-center"
+        >
+          <div className="p-4 rounded-full bg-blue-600/10 border border-blue-500/20 mb-6">
+             <Plus className="w-6 h-6 text-blue-400" />
+          </div>
+          <p className="text-neutral-500 font-medium">And 200+ more available in our marketplace.</p>
+        </motion.div>
+      </div>
+    </div>
+  )
+}`
+  },
+  "blog-post": {
+    title: "Engineering Blog Post",
+    description: "Highly readable blog content structure with typography-first design, code highlighting, and metadata displays.",
+    component: BlogLayout,
+    code: `"use client"
+import React from "react"
+import { motion } from "framer-motion"
+import { ArrowRight, Calendar, User, Clock } from "lucide-react"
+
+const posts = [
+  {
+    category: "Architecture",
+    title: "How we scaled to 1M requests per second with Rust and WebAssembly.",
+    author: "Elena Rossi",
+    date: "Feb 12, 2026",
+    time: "12 min read",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+  },
+  {
+    category: "Updates",
+    title: "Introducing v2.0: AI-powered component generation and real-time syncing.",
+    author: "Marcus Chen",
+    date: "Jan 28, 2026",
+    time: "5 min read",
+    image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2078&auto=format&fit=crop"
+  }
+]
+
+export function BlogLayout() {
+  return (
+    <div className="w-full max-w-7xl mx-auto py-24 px-6">
+      <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <div>
+           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Engineering Blog</h2>
+           <p className="text-neutral-500 text-lg max-w-lg leading-relaxed">
+             Insights and technical articles from the engineering team at VibeUI.
+           </p>
+        </div>
+        <button className="flex items-center gap-2 text-white font-bold group">
+           Explore all articles <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </button>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {posts.map((post, i) => (
+          <motion.article
+            key={i}
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: i * 0.1 }}
+            viewport={{ once: true }}
+            className="group cursor-pointer"
+          >
+            <div className="aspect-[16/10] rounded-3xl overflow-hidden border border-white/5 mb-8 relative">
+               <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+               <div className="absolute top-6 left-6 px-4 py-2 rounded-full bg-black/60 backdrop-blur-md border border-white/10">
+                  <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">{post.category}</span>
+               </div>
+            </div>
+            <div className="flex gap-6 mb-6">
+               <div className="flex items-center gap-2 text-neutral-500 text-xs font-medium"><User className="w-3.5 h-3.5" /> {post.author}</div>
+               <div className="flex items-center gap-2 text-neutral-500 text-xs font-medium"><Calendar className="w-3.5 h-3.5" /> {post.date}</div>
+               <div className="flex items-center gap-2 text-neutral-500 text-xs font-medium"><Clock className="w-3.5 h-3.5" /> {post.time}</div>
+            </div>
+            <h3 className="text-3xl font-bold text-white mb-6 group-hover:text-blue-400 transition-colors leading-tight">{post.title}</h3>
+            <p className="text-neutral-500 leading-relaxed mb-8 max-w-xl">Discover the journey and technical challenges we overcame while building the world's fastest web infrastructure.</p>
+            <div className="flex items-center gap-3 text-white font-bold uppercase tracking-widest text-[10px] group-hover:translate-x-2 transition-transform">
+               Read Article <ArrowRight className="w-3 h-3 text-blue-500" />
+            </div>
+          </motion.article>
         ))}
       </div>
     </div>
