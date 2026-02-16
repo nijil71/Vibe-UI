@@ -45,9 +45,9 @@ export function CodeBlock({ code, language = "tsx" }: { code: string; language?:
                 </button>
             </div>
 
-            <div className="p-4 overflow-x-auto custom-scrollbar">
-                <pre className="text-sm font-mono text-white/80 leading-relaxed font-ligatures-none">
-                    <code>{code}</code>
+            <div className="p-4 overflow-x-auto custom-scrollbar scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+                <pre className="text-[13px] md:text-sm font-mono text-white/80 leading-relaxed font-ligatures-none min-w-full inline-block">
+                    <code className="whitespace-pre">{code}</code>
                 </pre>
             </div>
         </div>

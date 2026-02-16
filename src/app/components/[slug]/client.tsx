@@ -19,16 +19,16 @@ export function ComponentDetailClient({ slug }: { slug: string }) {
 
     return (
         <div className="min-h-screen pt-24 pb-24 px-6 max-w-7xl mx-auto">
-            <Link href="/components" className="group inline-flex items-center text-sm text-white/50 hover:text-white mb-8 transition-colors">
+            <Link href="/components" className="group inline-flex items-center text-sm text-white/50 hover:text-white mb-6 md:mb-8 transition-colors">
                 <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
                 Back to Components
             </Link>
 
-            <div className="mb-12">
-                <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white/80 mb-4 inline-block">
+            <div className="mb-8 md:mb-12">
+                <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white/80 mb-4 inline-block">
                     {data.title}
                 </h1>
-                <p className="text-xl text-white/50 max-w-2xl font-light leading-relaxed">
+                <p className="text-lg md:text-xl text-white/50 max-w-2xl font-light leading-relaxed">
                     {data.description}
                 </p>
             </div>
@@ -106,7 +106,7 @@ export function ComponentDetailClient({ slug }: { slug: string }) {
                             </div>
 
                             {/* Scrollable Canvas Area */}
-                            <div className="relative w-full h-[700px] overflow-y-auto bg-neutral-950 scrollbar-thin">
+                            <div className="relative w-full h-[500px] md:h-[700px] overflow-y-auto bg-neutral-950 scrollbar-thin">
                                 {/* Background Grid Pattern */}
                                 <div className="fixed inset-0 opacity-[0.03] pointer-events-none"
                                     style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '32px 32px' }}>

@@ -14,7 +14,7 @@ const team = [
 export function TeamSection() {
     return (
         <div className="w-full max-w-7xl mx-auto py-24 px-6">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
                 <div className="max-w-xl">
                     <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight font-display">Crafted by the best.</h2>
                     <p className="text-neutral-400 text-lg leading-relaxed">

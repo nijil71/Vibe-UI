@@ -34,8 +34,8 @@ export function PricingTable() {
     const [billing, setBilling] = useState<"monthly" | "yearly">("monthly")
 
     return (
-        <div className="w-full py-24 px-6 max-w-7xl mx-auto">
-            <div className="text-center mb-16">
+        <div className="w-full py-16 md:py-24 px-6 max-w-7xl mx-auto">
+            <div className="text-center mb-12 md:mb-16">
                 <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">Simple Pricing.</h2>
                 <div className="flex items-center justify-center gap-4 mt-8">
                     <span className={`text-sm ${billing === "monthly" ? "text-white" : "text-neutral-500"}`}>Monthly</span>
@@ -49,9 +49,9 @@ export function PricingTable() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                 {plans.map((plan, i) => (
-                    <div key={i} className={`relative flex flex-col p-8 rounded-3xl border transition-all duration-300 ${plan.highlight ? "bg-neutral-900 border-blue-500/30 shadow-2xl shadow-blue-500/10 scale-105 z-10" : "bg-neutral-950 border-white/5 hover:border-white/20"}`}>
+                    <div key={i} className={`relative flex flex-col p-6 md:p-8 rounded-3xl border transition-all duration-300 ${plan.highlight ? "bg-neutral-900 border-blue-500/30 shadow-2xl shadow-blue-500/10 md:scale-105 z-10" : "bg-neutral-950 border-white/5 hover:border-white/20"}`}>
                         {plan.tag && (
                             <div className="absolute top-0 right-8 -translate-y-1/2 bg-blue-600 px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase tracking-widest shadow-lg shadow-blue-500/40">
                                 {plan.tag}

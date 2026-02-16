@@ -9,7 +9,7 @@ export default function Home() {
       <Hero />
       <ComponentGrid limit={6} />
 
-      <footer className="w-full py-20 px-6 bg-neutral-950 border-t border-white/5">
+      <footer className="w-full py-16 md:py-20 px-6 bg-neutral-950 border-t border-white/5">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <h3 className="text-xl font-bold text-white mb-6 font-display">vibeui</h3>
@@ -37,7 +37,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-neutral-600 text-[10px] uppercase tracking-widest font-bold">
+        <div className="max-w-7xl mx-auto mt-12 md:mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4 text-neutral-600 text-[10px] uppercase tracking-widest font-bold text-center md:text-left">
           <p>© 2026 VIBE UI INC. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-8">
             <a href="#" className="hover:text-neutral-400 transition-colors">Privacy Policy</a>

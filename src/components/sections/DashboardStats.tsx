@@ -11,13 +11,13 @@ const stats = [
 
 export function DashboardStats() {
     return (
-        <div className="w-full bg-neutral-950 border border-white/5 rounded-3xl p-8 overflow-hidden shadow-2xl">
+        <div className="w-full bg-neutral-950 border border-white/5 rounded-3xl p-6 md:p-8 overflow-hidden shadow-2xl">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
                 <div>
                     <h3 className="text-2xl font-bold text-white mb-2 leading-tight">Project Overview</h3>
                     <p className="text-neutral-500 text-sm">Real-time performance metrics for the last 30 days.</p>
                 </div>
-                <div className="flex bg-white/5 rounded-xl p-1 border border-white/5">
+                <div className="flex bg-white/5 rounded-xl p-1 border border-white/5 overflow-x-auto">
                     {["1D", "1W", "1M", "1Y"].map((t) => (
                         <button key={t} className={`px-4 py-1.5 text-xs font-medium rounded-lg transition-all ${t === "1M" ? "bg-white text-black" : "text-neutral-400 hover:text-white"}`}>
                             {t}
@@ -44,7 +44,7 @@ export function DashboardStats() {
                         </div>
 
                         {/* Subtle Chart Mockup */}
-                        <div className="mt-6 h-12 w-full flex items-end gap-1 px-1">
+                        <div className="mt-6 h-8 md:h-12 w-full flex items-end gap-1 px-1">
                             {[40, 70, 45, 90, 65, 80, 50, 85, 95, 75, 60, 90].map((h, j) => (
                                 <div key={j} className="flex-1 bg-blue-500/20 rounded-t-sm group-hover:bg-blue-500/40 transition-all" style={{ height: `${h}%` }} />
                             ))}

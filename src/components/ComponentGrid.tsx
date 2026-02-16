@@ -122,8 +122,8 @@ export function ComponentGrid({ limit }: { limit?: number }) {
 
     return (
         <section id="components" className="py-24 px-6 max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-                <div className="flex flex-col items-start gap-4">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
+                <div className="max-w-xl">
                     <h2 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60">
                         Production Sections
                     </h2>
