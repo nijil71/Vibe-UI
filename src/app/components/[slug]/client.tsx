@@ -3,7 +3,14 @@ import React from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
-import { ArrowLeft, Monitor, Code as CodeIcon, RotateCcw } from "lucide-react"
+import {
+    ArrowLeft,
+    Monitor,
+    Smartphone,
+    Tablet,
+    Code as CodeIcon,
+    RotateCcw
+} from "lucide-react"
 import { CodeBlock } from "@/components/CodeBlock"
 import { cn } from "@/lib/utils"
 import { COMPONENTS } from "@/data/components"
@@ -15,6 +22,7 @@ export function ComponentDetailClient({ slug }: { slug: string }) {
     if (!data) return null;
 
     const [activeTab, setActiveTab] = useState<"preview" | "code">("preview")
+    const [viewport, setViewport] = useState<"desktop" | "tablet" | "mobile">("desktop")
     const [key, setKey] = useState(0) // For re-mounting component to reload animations
 
     return (
@@ -48,7 +56,7 @@ export function ComponentDetailClient({ slug }: { slug: string }) {
                     {activeTab === "preview" && (
                         <motion.div
                             layoutId="activeTab"
-                            className="absolute bottom-[-5px] left-0 right-0 h-[2px] bg-blue-500 shadow-[0_0_10px_2px_rgba(59,130,246,0.5)]"
+                            className="absolute bottom-[-5px] left-0 right-0 h-[2px] bg-accent-blue shadow-[0_0_10px_2px_var(--color-accent-blue-glow)]"
                         />
                     )}
                 </button>
@@ -66,10 +74,31 @@ export function ComponentDetailClient({ slug }: { slug: string }) {
                     {activeTab === "code" && (
                         <motion.div
                             layoutId="activeTab"
-                            className="absolute bottom-[-5px] left-0 right-0 h-[2px] bg-blue-500 shadow-[0_0_10px_2px_rgba(59,130,246,0.5)]"
+                            className="absolute bottom-[-5px] left-0 right-0 h-[2px] bg-accent-blue shadow-[0_0_10px_2px_var(--color-accent-blue-glow)]"
                         />
                     )}
                 </button>
+
+                {activeTab === "preview" && (
+                    <div className="ml-auto hidden sm:flex items-center gap-1 bg-white/5 p-1 rounded-xl border border-white/5">
+                        {[
+                            { id: 'desktop', icon: Monitor },
+                            { id: 'tablet', icon: Tablet },
+                            { id: 'mobile', icon: Smartphone },
+                        ].map((v) => (
+                            <button
+                                key={v.id}
+                                onClick={() => setViewport(v.id as any)}
+                                className={cn(
+                                    "p-2 rounded-lg transition-all",
+                                    viewport === v.id ? "bg-white/10 text-white shadow-sm" : "text-white/30 hover:text-white/60"
+                                )}
+                            >
+                                <v.icon className="w-4 h-4" />
+                            </button>
+                        ))}
+                    </div>
+                )}
             </div>
 
             {/* Content Area */}
@@ -83,42 +112,47 @@ export function ComponentDetailClient({ slug }: { slug: string }) {
                     className="relative"
                 >
                     {activeTab === "preview" ? (
-                        <div className="relative rounded-xl border border-white/10 bg-[#0d0d0d] overflow-hidden shadow-2xl shadow-black/50">
-                            {/* Browser Header */}
-                            <div className="flex items-center px-4 py-3 bg-white/5 border-b border-white/5">
-                                <div className="flex gap-2">
-                                    <div className="w-3 h-3 rounded-full bg-red-500/20" />
-                                    <div className="w-3 h-3 rounded-full bg-yellow-500/20" />
-                                    <div className="w-3 h-3 rounded-full bg-green-500/20" />
-                                </div>
-                                <div className="flex-1 text-center">
-                                    <div className="inline-flex items-center px-3 py-1 rounded bg-black/20 text-[10px] sm:text-xs text-white/30 font-mono tracking-wide">
-                                        src/components/{slug}.tsx
+                        <div className="flex justify-center">
+                            <motion.div
+                                animate={{
+                                    width: viewport === 'mobile' ? '375px' : viewport === 'tablet' ? '768px' : '100%'
+                                }}
+                                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                                className="relative rounded-xl border border-white/10 bg-[#0d0d0d] overflow-hidden shadow-2xl shadow-black/50"
+                            >
+                                {/* Browser Header */}
+                                <div className="flex items-center px-4 py-3 bg-white/5 border-b border-white/5">
+                                    <div className="flex gap-2">
+                                        <div className="w-3 h-3 rounded-full bg-red-500/20" />
+                                        <div className="w-3 h-3 rounded-full bg-yellow-500/20" />
+                                        <div className="w-3 h-3 rounded-full bg-green-500/20" />
                                     </div>
-                                </div>
-                                <button
-                                    onClick={() => setKey(k => k + 1)}
-                                    className="p-1.5 rounded-md hover:bg-white/10 text-white/30 hover:text-white transition-colors"
-                                    aria-label="Reload Preview"
-                                >
-                                    <RotateCcw className="w-4 h-4" />
-                                </button>
-                            </div>
-
-                            {/* Scrollable Canvas Area */}
-                            <div className="relative w-full h-[500px] md:h-[700px] overflow-y-auto bg-neutral-950 scrollbar-thin">
-                                {/* Background Grid Pattern */}
-                                <div className="fixed inset-0 opacity-[0.03] pointer-events-none"
-                                    style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '32px 32px' }}>
+                                    <div className="flex-1 text-center">
+                                        <div className="inline-flex items-center px-3 py-1 rounded bg-black/20 text-[10px] sm:text-xs text-white/30 font-mono tracking-wide">
+                                            src/components/{slug}.tsx
+                                        </div>
+                                    </div>
+                                    <button
+                                        onClick={() => setKey(k => k + 1)}
+                                        className="p-1.5 rounded-md hover:bg-white/10 text-white/30 hover:text-white transition-colors"
+                                        aria-label="Reload Preview"
+                                    >
+                                        <RotateCcw className="w-4 h-4" />
+                                    </button>
                                 </div>
 
-                                <div className="relative z-10 w-full min-h-full py-12" key={key}>
-                                    {/* Render the component function */}
-                                    <div className="max-w-7xl mx-auto">
+                                {/* Scrollable Canvas Area */}
+                                <div className="relative w-full h-[500px] md:h-[700px] overflow-y-auto bg-neutral-950 scrollbar-thin">
+                                    {/* Background Grid Pattern */}
+                                    <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
+                                        style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '32px 32px' }}>
+                                    </div>
+
+                                    <div className="relative z-10 w-full min-h-full py-12 px-4" key={key}>
                                         <data.component />
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
                     ) : (
                         <CodeBlock code={data.code} language="tsx" />

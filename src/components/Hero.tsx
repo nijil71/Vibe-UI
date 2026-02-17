@@ -6,10 +6,12 @@ import { ArrowRight, Github } from "lucide-react"
 import { Button } from "./ui/Button"
 import HeroPreviewWrapper from "./HeroPreviewWrapper"
 import DynamicPreview from "./Preview"
+import { MeshGradient } from "./ui/MeshGradient"
 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden px-6 py-20 md:py-32">
+      <MeshGradient />
 
       <div className="relative z-10 max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-16 md:gap-24 items-center">
 

@@ -1,41 +1,52 @@
 "use client"
-import { motion } from "framer-motion"
-import { Shuffle } from "lucide-react"
-import { useRouter } from "next/navigation"
+import { motion, AnimatePresence } from "framer-motion"
+import { Palette, Sparkles } from "lucide-react"
+import { useVibe } from "@/lib/VibeContext"
+import { useState } from "react"
 
-const VIBES = [
-    "/components/dashboard-stats",
-    "/components/bento-features",
-    "/components/pricing-table",
-    "/components/api-quickstart",
-    "/components/team-grid",
-    "/components/workflow-steps"
-]
+const VIBES = ['midnight', 'emerald', 'sunset', 'cobalt'] as const
 
 export function RandomVibeButton() {
-    const router = useRouter()
+    const { vibe, setVibe } = useVibe()
+    const [isHovered, setIsHovered] = useState(false)
 
-    const handleRandom = () => {
-        const randomIndex = Math.floor(Math.random() * VIBES.length)
-        const randomPath = VIBES[randomIndex]
-        router.push(randomPath)
+    const cycleVibe = () => {
+        const currentIndex = VIBES.indexOf(vibe)
+        const nextIndex = (currentIndex + 1) % VIBES.length
+        setVibe(VIBES[nextIndex])
     }
 
     return (
-        <motion.button
-            whileHover={{ scale: 1.1, rotate: 180 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            onClick={handleRandom}
-            className="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-gradient-to-tr from-blue-600 to-violet-600 text-white shadow-lg shadow-blue-500/30 group border border-white/20 backdrop-blur-md"
-            aria-label="Random Vibe"
-        >
-            <Shuffle className="w-6 h-6 group-hover:animate-pulse" />
+        <div className="fixed bottom-6 right-6 z-50 flex items-center gap-4">
+            <AnimatePresence>
+                {isHovered && (
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 20 }}
+                        className="bg-black/80 backdrop-blur-md border border-white/10 px-4 py-2 rounded-2xl shadow-2xl"
+                    >
+                        <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest mb-1">Current Vibe</p>
+                        <p className="text-white font-medium capitalize flex items-center gap-2">
+                            <Sparkles className="w-3 h-3 text-accent-blue" />
+                            {vibe}
+                        </p>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
-            {/* Tooltip */}
-            <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-black/80 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap backdrop-blur-md border border-white/10 shadow-xl">
-                Try a Random Section
-            </span>
-        </motion.button>
+            <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                onClick={cycleVibe}
+                className="p-4 rounded-full bg-neutral-900 text-white shadow-2xl shadow-accent-blue/20 group border border-white/10 backdrop-blur-md relative overflow-hidden"
+                aria-label="Change Vibe"
+            >
+                <div className="absolute inset-0 bg-gradient-to-tr from-accent-blue/20 to-accent-violet/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <Palette className="w-6 h-6 relative z-10 text-accent-blue" />
+            </motion.button>
+        </div>
     )
 }
