@@ -58,7 +58,7 @@ export function BlogLayout() {
                             </div>
                         </div>
 
-                        <div className="flex gap-6 mb-6">
+                        <div className="flex flex-wrap gap-x-6 gap-y-3 mb-6">
                             <div className="flex items-center gap-2 text-neutral-500 text-xs font-medium">
                                 <User className="w-3.5 h-3.5" /> {post.author}
                             </div>

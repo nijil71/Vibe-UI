@@ -12,7 +12,11 @@ import {
     Layout,
     MessageSquare,
     Activity,
-    Cpu
+    Cpu,
+    HelpCircle,
+    TrendingUp,
+    Mail,
+    Megaphone
 } from "lucide-react"
 
 const components = [
@@ -111,18 +115,58 @@ const components = [
         href: "/components/blog-post",
         tags: ["Content", "Reading"],
         icon: Layout
+    },
+    {
+        id: 13,
+        title: "Interactive FAQ",
+        description: "Smooth accordion-based section for common user inquiries.",
+        href: "/components/faq",
+        tags: ["Support", "Accordion"],
+        icon: HelpCircle
+    },
+    {
+        id: 14,
+        title: "Impact Stats Wall",
+        description: "Bold, metric-heavy section for social proof and high-level wins.",
+        href: "/components/stats-wall",
+        tags: ["Metrics", "Growth"],
+        icon: TrendingUp
+    },
+    {
+        id: 15,
+        title: "Premium Newsletter",
+        description: "Conversion-focused mailing list signup with success states.",
+        href: "/components/newsletter",
+        tags: ["Marketing", "Email"],
+        icon: Mail
+    },
+    {
+        id: 16,
+        title: "Global CTA Block",
+        description: "High-impact final pitch with dual actions and trust signals.",
+        href: "/components/cta",
+        tags: ["Conversion", "Sales"],
+        icon: Megaphone
     }
 ]
 
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Search, X } from "lucide-react"
+import { useState, useMemo } from "react"
 
 export function ComponentGrid({ limit }: { limit?: number }) {
-    const displayedComponents = limit ? components.slice(0, limit) : components
+    const [searchQuery, setSearchQuery] = useState("")
+    const displayedComponents = useMemo(() => {
+        const filtered = components.filter(comp =>
+            comp.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            comp.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+        )
+        return limit ? filtered.slice(0, limit) : filtered
+    }, [searchQuery, limit])
 
     return (
         <section id="components" className="py-24 px-6 max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-8">
                 <div className="max-w-xl">
                     <h2 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60">
                         Production Sections
@@ -132,7 +176,28 @@ export function ComponentGrid({ limit }: { limit?: number }) {
                     </p>
                 </div>
 
-                {limit && (
+                {!limit ? (
+                    <div className="relative w-full md:w-80 group">
+                        <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                            <Search className="w-4 h-4 text-neutral-500 group-focus-within:text-accent-blue transition-colors" />
+                        </div>
+                        <input
+                            type="text"
+                            placeholder="Search components..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="w-full pl-11 pr-11 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-1 focus:ring-accent-blue/50 focus:border-accent-blue/50 transition-all font-medium"
+                        />
+                        {searchQuery && (
+                            <button
+                                onClick={() => setSearchQuery("")}
+                                className="absolute inset-y-0 right-4 flex items-center text-neutral-500 hover:text-white transition-colors"
+                            >
+                                <X className="w-4 h-4" />
+                            </button>
+                        )}
+                    </div>
+                ) : (
                     <Link
                         href="/components"
                         className="group flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all"
@@ -142,6 +207,18 @@ export function ComponentGrid({ limit }: { limit?: number }) {
                     </Link>
                 )}
             </div>
+
+            {displayedComponents.length === 0 ? (
+                <div className="py-20 text-center border border-dashed border-white/10 rounded-3xl">
+                    <p className="text-neutral-500 text-lg">No components found matching "{searchQuery}"</p>
+                    <button
+                        onClick={() => setSearchQuery("")}
+                        className="mt-4 text-accent-blue hover:underline font-medium text-sm"
+                    >
+                        Clear search
+                    </button>
+                </div>
+            ) : null}
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {displayedComponents.map((component) => (

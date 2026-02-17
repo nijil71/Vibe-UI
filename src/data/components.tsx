@@ -10,6 +10,10 @@ import { InfraSection } from "@/components/sections/InfraSection"
 import { GlobalDistribution } from "@/components/sections/GlobalDistribution"
 import { IntegrationsSection } from "@/components/sections/IntegrationsSection"
 import { BlogLayout } from "@/components/sections/BlogLayout"
+import { FaqSection } from "@/components/sections/FaqSection"
+import { StatsWall } from "@/components/sections/StatsWall"
+import { NewsletterSection } from "@/components/sections/NewsletterSection"
+import { CtaSection } from "@/components/sections/CtaSection"
 
 export const COMPONENTS = {
   "dashboard-stats": {
@@ -934,6 +938,284 @@ export function BlogLayout() {
       </div>
     </div>
   )
+}`
+  },
+  "faq": {
+    title: "Interactive FAQ",
+    description: "Smooth accordion-based section for common user inquiries. Features beautiful animations and a clean, modern layout.",
+    component: FaqSection,
+    code: `"use client"
+import React, { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Plus, Minus } from "lucide-react"
+import { cn } from "@/lib/utils"
+
+const faqs = [
+    {
+        question: "How does the consumption-based pricing work?",
+        answer: "We bill exactly for what you use. Each project gets a generous free tier, and once exceeded, you're charged per 1,000 requests. There are no hidden fees or monthly minimums on the basic plan."
+    },
+    {
+        question: "Can I migrate my existing infrastructure to Vibe UI?",
+        answer: "Yes! We provide built-in migration tools for AWS, Vercel, and Netlify. Our dedicated support team can also assist with custom architecture shifts for enterprise clients."
+    },
+    {
+        question: "What kind of support do you offer for developers?",
+        answer: "Every user has access to our community Discord and extensive documentation. Pro and Enterprise users get dedicated Slack channels and prioritized ticket response times under 2 hours."
+    },
+    {
+        question: "Is there a limit to how many projects I can create?",
+        answer: "On the Starter plan, you can have up to 3 active projects. Pro and Enterprise tiers offer unlimited project creation with granular team permissions."
+    }
+]
+
+export function FaqSection() {
+    const [openIndex, setOpenIndex] = useState<number | null>(0)
+
+    return (
+        <div className="w-full max-w-4xl mx-auto py-24 px-6">
+            <div className="text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Got Questions?</h2>
+                <p className="text-neutral-400 text-lg">
+                    Everything you need to know about our platform and how to get started.
+                </p>
+            </div>
+
+            <div className="space-y-4">
+                {faqs.map((faq, i) => (
+                    <div 
+                        key={i} 
+                        className={cn(
+                            "rounded-3xl border transition-all duration-300 overflow-hidden",
+                            openIndex === i ? "bg-neutral-900 border-white/10" : "bg-neutral-950 border-white/5 hover:border-white/10"
+                        )}
+                    >
+                        <button
+                            onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                            className="w-full flex items-center justify-between p-6 md:p-8 text-left group"
+                        >
+                            <span className={cn(
+                                "text-lg font-bold transition-colors",
+                                openIndex === i ? "text-white" : "text-neutral-400 group-hover:text-white"
+                            )}>
+                                {faq.question}
+                            </span>
+                            <div className={cn(
+                                "p-2 rounded-xl border transition-all",
+                                openIndex === i ? "bg-blue-600 border-blue-500 rotate-0" : "bg-white/5 border-white/5 group-hover:border-white/10"
+                            )}>
+                                {openIndex === i ? <Minus className="w-4 h-4 text-white" /> : <Plus className="w-4 h-4 text-neutral-500" />}
+                            </div>
+                        </button>
+                        <AnimatePresence>
+                            {openIndex === i && (
+                                <motion.div
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: "auto", opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                >
+                                    <div className="px-6 md:px-8 pb-8 pt-0">
+                                        <p className="text-neutral-500 leading-relaxed text-base">
+                                            {faq.answer}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
+}`
+  },
+  "stats-wall": {
+    title: "Impact Stats Wall",
+    description: "High-impact, metric-heavy section for social proof and celebrating high-level business wins with bold typography.",
+    component: StatsWall,
+    code: `"use client"
+import React from "react"
+import { motion } from "framer-motion"
+import { Users, Globe2, Zap, Rocket } from "lucide-react"
+
+const stats = [
+    { label: "Active Deployments", value: "2.4M", icon: Rocket, color: "blue" },
+    { label: "Requests per Day", value: "850M", icon: Zap, color: "amber" },
+    { label: "Global Edge Nodes", value: "320+", icon: Globe2, color: "emerald" },
+    { label: "Total Developers", value: "140K", icon: Users, color: "violet" },
+]
+
+export function StatsWall() {
+    return (
+        <div className="w-full max-w-7xl mx-auto py-24 px-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {stats.map((stat, i) => (
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.1, duration: 0.5 }}
+                        viewport={{ once: true }}
+                        className="group relative flex flex-col items-center text-center p-10 rounded-[32px] bg-neutral-900 border border-white/5 overflow-hidden"
+                    >
+                        <div className={\`absolute top-0 right-0 w-32 h-32 blur-[80px] opacity-20 pointer-events-none rounded-full translate-x-1/2 -translate-y-1/2 \${
+                            stat.color === 'blue' ? 'bg-blue-500' :
+                            stat.color === 'amber' ? 'bg-amber-500' :
+                            stat.color === 'emerald' ? 'bg-emerald-500' : 'bg-violet-500'
+                        }\`} />
+
+                        <div className={\`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center border transition-all duration-500 \${
+                            stat.color === 'blue' ? 'bg-blue-500/10 border-blue-500/20 text-blue-400 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white' :
+                            stat.color === 'amber' ? 'bg-amber-500/10 border-amber-500/20 text-amber-400 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white' :
+                            stat.color === 'emerald' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white' :
+                            'bg-violet-500/10 border-violet-500/20 text-violet-400 group-hover:scale-110 group-hover:bg-violet-500 group-hover:text-white'
+                        }\`}>
+                            <stat.icon className="w-8 h-8" />
+                        </div>
+
+                        <h3 className="text-5xl font-black text-white mb-2 tracking-tighter">
+                            {stat.value}
+                        </h3>
+                        <p className="text-neutral-500 font-bold uppercase tracking-widest text-[10px]">
+                            {stat.label}
+                        </p>
+                    </motion.div>
+                ))}
+            </div>
+        </div>
+    )
+}`
+  },
+  "newsletter": {
+    title: "Premium Newsletter",
+    description: "Conversion-focused mailing list signup with success states and premium hover effects. Built for audience growth.",
+    component: NewsletterSection,
+    code: `"use client"
+import React, { useState } from "react"
+import { motion } from "framer-motion"
+import { Send, Sparkles, CheckCircle2 } from "lucide-react"
+
+export function NewsletterSection() {
+    const [status, setStatus] = useState<"idle" | "loading" | "success">("idle")
+
+    const handleSubscribe = (e: React.FormEvent) => {
+        e.preventDefault()
+        setStatus("loading")
+        setTimeout(() => setStatus("success"), 1500)
+    }
+
+    return (
+        <div className="w-full max-w-7xl mx-auto py-24 px-6">
+            <div className="relative rounded-[40px] bg-neutral-900 border border-white/5 p-8 md:p-16 overflow-hidden">
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none translate-x-1/4 -translate-y-1/4" />
+                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-violet-600/10 blur-[120px] rounded-full pointer-events-none -translate-x-1/4 translate-y-1/4" />
+
+                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-bold text-blue-400 uppercase tracking-widest mb-8">
+                            <Sparkles className="w-3.5 h-3.5" /> Weekly Insights
+                        </div>
+                        <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-tight">
+                            Build faster. <br />Stay inspired.
+                        </h2>
+                        <p className="text-neutral-400 text-lg max-w-lg leading-relaxed">
+                            Join 140,000+ developers getting our weekly digest on UI trends, system architecture, and production-ready components.
+                        </p>
+                    </div>
+
+                    <div className="flex flex-col gap-6">
+                        {status === "success" ? (
+                            <motion.div 
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="p-8 rounded-3xl bg-emerald-500/10 border border-emerald-500/20 flex flex-col items-center text-center group"
+                            >
+                                <div className="w-16 h-16 rounded-full bg-emerald-500 flex items-center justify-center mb-6 shadow-xl shadow-emerald-500/20">
+                                    <CheckCircle2 className="w-8 h-8 text-white" />
+                                </div>
+                                <h4 className="text-2xl font-bold text-white mb-2">You're on the list!</h4>
+                                <p className="text-emerald-400/80 font-medium">Welcome to the inner circle of development.</p>
+                            </motion.div>
+                        ) : (
+                            <form onSubmit={handleSubscribe} className="space-y-4">
+                                <div className="relative group">
+                                    <input
+                                        required
+                                        type="email"
+                                        placeholder="Enter your work email"
+                                        className="w-full px-6 py-5 rounded-2xl bg-black/40 border border-white/10 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-lg font-medium"
+                                    />
+                                    <button
+                                        disabled={status === "loading"}
+                                        className="absolute right-2.5 top-2.5 bottom-2.5 px-6 rounded-xl bg-white text-black font-bold flex items-center gap-2 hover:bg-neutral-200 transition-all disabled:opacity-50"
+                                    >
+                                        {status === "loading" ? "..." : (
+                                            <>
+                                                Subscribe <Send className="w-4 h-4" />
+                                            </>
+                                        )}
+                                    </button>
+                                </div>
+                            </form>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}`
+  },
+  "cta": {
+    title: "Global CTA Block",
+    description: "High-impact final pitch for your landing page with dual action buttons, trust signals, and elegant gradients.",
+    component: CtaSection,
+    code: `"use client"
+import React from "react"
+import { motion } from "framer-motion"
+import { ArrowRight, Zap, Play } from "lucide-react"
+
+export function CtaSection() {
+    return (
+        <div className="w-full max-w-7xl mx-auto py-24 px-6 overflow-hidden">
+            <div className="relative p-1 px-1 rounded-[48px] bg-gradient-to-br from-blue-500/20 via-violet-500/10 to-transparent">
+                <div className="relative rounded-[46px] bg-[#0c0c0c] p-8 md:p-20 overflow-hidden text-center flex flex-col items-center">
+                    <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.08),transparent_70%)]" />
+
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true }}
+                        className="relative z-10"
+                    >
+                        <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center mb-10 mx-auto">
+                            <Zap className="w-8 h-8 text-black fill-black" />
+                        </div>
+
+                        <h2 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-none">
+                            Ready to ship your <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-violet-500">best work yet?</span>
+                        </h2>
+
+                        <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+                            Stop wasting time on boilerplate. Get started with our enterprise-grade sections today and focus on what makes your product unique.
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <button className="w-full sm:w-auto px-10 py-5 rounded-2xl bg-white text-black font-bold text-lg hover:bg-neutral-200 transition-all flex items-center justify-center gap-3 active:scale-95 shadow-xl shadow-white/5">
+                                Start Building <ArrowRight className="w-5 h-5" />
+                            </button>
+                            <button className="w-full sm:w-auto px-10 py-5 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center gap-3 active:scale-95">
+                                <Play className="w-4 h-4 fill-white" /> Watch Demo
+                            </button>
+                        </div>
+                    </motion.div>
+                </div>
+            </div>
+        </div>
+    )
 }`
   }
 }

@@ -4,7 +4,6 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Noise } from "@/components/ui/Noise";
 import { CommandMenu } from "@/components/ui/CommandMenu";
-import { VibeProvider } from "@/lib/VibeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,6 +20,8 @@ export const metadata: Metadata = {
   description: "A visually striking, ultra-premium component library built with Next.js & Tailwind CSS.",
 };
 
+import LayoutWrapper from "@/components/LayoutWrapper";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -36,14 +37,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background text-foreground selection:bg-blue-500/30 selection:text-white`}
       >
-        <VibeProvider>
-          <Noise />
-          <CommandMenu />
-          <Navbar />
-          <main className="flex flex-col min-h-screen">
-            {children}
-          </main>
-        </VibeProvider>
+        <LayoutWrapper>
+          {children}
+        </LayoutWrapper>
       </body>
     </html>
   );

@@ -1,6 +1,7 @@
 "use client"
 
 import { ComponentGrid } from "@/components/ComponentGrid"
+import Footer from "@/components/Footer"
 import { motion } from "framer-motion"
 
 export default function ComponentsPage() {
@@ -26,7 +27,7 @@ export default function ComponentsPage() {
 
             <ComponentGrid />
 
-            <section className="max-w-7xl mx-auto px-6 mt-32 text-center border-t border-white/5 pt-20">
+            {/* <section className="max-w-7xl mx-auto px-6 mt-32 text-center border-t border-white/5 pt-20">
                 <h2 className="text-2xl font-bold text-white mb-4">Request a Section</h2>
                 <p className="text-neutral-500 mb-8 max-w-lg mx-auto">
                     Can't find what you're looking for? Suggest a new UI pattern and we'll build it for the community.
@@ -34,7 +35,10 @@ export default function ComponentsPage() {
                 <button className="px-8 py-3 rounded-full border border-white/10 text-white hover:bg-white/5 transition-all">
                     Submit Request
                 </button>
-            </section>
+            </section> */}
+
+            <Footer />
         </main>
+        
     )
 }

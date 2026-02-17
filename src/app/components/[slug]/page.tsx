@@ -2,6 +2,7 @@ import { COMPONENTS } from "@/data/components"
 import { notFound } from "next/navigation"
 import { ComponentDetailClient } from "./client"
 import { Metadata } from "next"
+import Footer from "@/components/Footer"
 
 export function generateStaticParams() {
     return Object.keys(COMPONENTS).map((slug) => ({ slug }))
@@ -31,5 +32,8 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
         notFound()
     }
 
-    return <ComponentDetailClient slug={slug} />
+    return <>
+    <ComponentDetailClient slug={slug} />
+    <Footer />
+    </>
 }
