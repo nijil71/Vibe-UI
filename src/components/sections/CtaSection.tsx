@@ -41,7 +41,7 @@ export function CtaSection() {
                             </button>
                         </div>
 
-                        <div className="mt-16 flex items-center justify-center gap-8 text-[11px] font-bold text-neutral-600 uppercase tracking-[0.2em]">
+                        <div className="mt-16 flex flex-wrap items-center justify-center gap-6 md:gap-8 text-[11px] font-bold text-neutral-600 uppercase tracking-[0.2em]">
                             <span className="flex items-center gap-2 italic">
                                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                                 14-Day Free Trial

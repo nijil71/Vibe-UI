@@ -21,18 +21,18 @@ export function StatsWall() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.1, duration: 0.5 }}
                         viewport={{ once: true }}
-                        className="group relative flex flex-col items-center text-center p-10 rounded-[32px] bg-neutral-900 border border-white/5 overflow-hidden"
+                        className="group relative flex flex-col items-center text-center p-8 md:p-10 rounded-[32px] bg-neutral-900 border border-white/5 overflow-hidden"
                     >
                         {/* Background Decor */}
                         <div className={`absolute top-0 right-0 w-32 h-32 blur-[80px] opacity-20 pointer-events-none rounded-full translate-x-1/2 -translate-y-1/2 ${stat.color === 'blue' ? 'bg-blue-500' :
-                                stat.color === 'amber' ? 'bg-amber-500' :
-                                    stat.color === 'emerald' ? 'bg-emerald-500' : 'bg-violet-500'
+                            stat.color === 'amber' ? 'bg-amber-500' :
+                                stat.color === 'emerald' ? 'bg-emerald-500' : 'bg-violet-500'
                             }`} />
 
                         <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center border transition-all duration-500 ${stat.color === 'blue' ? 'bg-blue-500/10 border-blue-500/20 text-blue-400 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white' :
-                                stat.color === 'amber' ? 'bg-amber-500/10 border-amber-500/20 text-amber-400 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white' :
-                                    stat.color === 'emerald' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white' :
-                                        'bg-violet-500/10 border-violet-500/20 text-violet-400 group-hover:scale-110 group-hover:bg-violet-500 group-hover:text-white'
+                            stat.color === 'amber' ? 'bg-amber-500/10 border-amber-500/20 text-amber-400 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white' :
+                                stat.color === 'emerald' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white' :
+                                    'bg-violet-500/10 border-violet-500/20 text-violet-400 group-hover:scale-110 group-hover:bg-violet-500 group-hover:text-white'
                             }`}>
                             <stat.icon className="w-8 h-8" />
                         </div>

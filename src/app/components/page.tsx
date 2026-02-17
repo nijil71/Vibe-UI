@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 
 export default function ComponentsPage() {
     return (
-        <main className="min-h-screen bg-background pt-32 pb-20">
+        <main className="min-h-screen bg-background pt-32">
             <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

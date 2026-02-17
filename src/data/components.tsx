@@ -1057,7 +1057,7 @@ export function StatsWall() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.1, duration: 0.5 }}
                         viewport={{ once: true }}
-                        className="group relative flex flex-col items-center text-center p-10 rounded-[32px] bg-neutral-900 border border-white/5 overflow-hidden"
+                        className="group relative flex flex-col items-center text-center p-8 md:p-10 rounded-[32px] bg-neutral-900 border border-white/5 overflow-hidden"
                     >
                         <div className={\`absolute top-0 right-0 w-32 h-32 blur-[80px] opacity-20 pointer-events-none rounded-full translate-x-1/2 -translate-y-1/2 \${
                             stat.color === 'blue' ? 'bg-blue-500' :
@@ -1124,7 +1124,7 @@ export function NewsletterSection() {
                         </p>
                     </div>
 
-                    <div className="flex flex-col gap-6">
+                    <div className="flex flex-col gap-6 w-full">
                         {status === "success" ? (
                             <motion.div 
                                 initial={{ opacity: 0, scale: 0.9 }}
@@ -1138,17 +1138,17 @@ export function NewsletterSection() {
                                 <p className="text-emerald-400/80 font-medium">Welcome to the inner circle of development.</p>
                             </motion.div>
                         ) : (
-                            <form onSubmit={handleSubscribe} className="space-y-4">
-                                <div className="relative group">
+                            <form onSubmit={handleSubscribe} className="space-y-4 w-full">
+                                <div className="flex flex-col md:flex-row gap-3">
                                     <input
                                         required
                                         type="email"
                                         placeholder="Enter your work email"
-                                        className="w-full px-6 py-5 rounded-2xl bg-black/40 border border-white/10 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-lg font-medium"
+                                        className="w-full md:flex-1 px-6 py-4 rounded-2xl bg-black/40 border border-white/10 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-base md:text-lg font-medium"
                                     />
                                     <button
                                         disabled={status === "loading"}
-                                        className="absolute right-2.5 top-2.5 bottom-2.5 px-6 rounded-xl bg-white text-black font-bold flex items-center gap-2 hover:bg-neutral-200 transition-all disabled:opacity-50"
+                                        className="w-full md:w-auto px-8 py-4 rounded-2xl bg-white text-black font-bold flex items-center justify-center gap-2 hover:bg-neutral-200 transition-all disabled:opacity-50 whitespace-nowrap"
                                     >
                                         {status === "loading" ? "..." : (
                                             <>
@@ -1157,8 +1157,24 @@ export function NewsletterSection() {
                                         )}
                                     </button>
                                 </div>
+                                <p className="text-[11px] text-neutral-500 font-medium px-4 text-center md:text-left">
+                                    No spam. Only high-quality technical content. Unsubscribe at any time.
+                                </p>
                             </form>
                         )}
+
+                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-6 px-4">
+                            {[
+                                "Latest releases",
+                                "Component peeks",
+                                "Performance tips"
+                            ].map((text) => (
+                                <div key={text} className="flex items-center gap-2 text-[10px] md:text-xs font-bold text-neutral-400 uppercase tracking-wider">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
+                                    {text}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1210,6 +1226,17 @@ export function CtaSection() {
                             <button className="w-full sm:w-auto px-10 py-5 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center gap-3 active:scale-95">
                                 <Play className="w-4 h-4 fill-white" /> Watch Demo
                             </button>
+                        </div>
+
+                        <div className="mt-16 flex flex-wrap items-center justify-center gap-6 md:gap-8 text-[11px] font-bold text-neutral-600 uppercase tracking-[0.2em]">
+                            <span className="flex items-center gap-2 italic">
+                                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                                14-Day Free Trial
+                            </span>
+                            <span className="flex items-center gap-2 italic">
+                                <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                                No Credit Card
+                            </span>
                         </div>
                     </motion.div>
                 </div>

@@ -32,7 +32,7 @@ export function NewsletterSection() {
                         </p>
                     </div>
 
-                    <div className="flex flex-col gap-6">
+                    <div className="flex flex-col gap-6 w-full">
                         {status === "success" ? (
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.9 }}
@@ -46,17 +46,17 @@ export function NewsletterSection() {
                                 <p className="text-emerald-400/80 font-medium">Welcome to the inner circle of development.</p>
                             </motion.div>
                         ) : (
-                            <form onSubmit={handleSubscribe} className="space-y-4">
-                                <div className="relative group">
+                            <form onSubmit={handleSubscribe} className="space-y-4 w-full">
+                                <div className="flex flex-col md:flex-row gap-3">
                                     <input
                                         required
                                         type="email"
                                         placeholder="Enter your work email"
-                                        className="w-full px-6 py-5 rounded-2xl bg-black/40 border border-white/10 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-lg font-medium"
+                                        className="w-full md:flex-1 px-6 py-4 rounded-2xl bg-black/40 border border-white/10 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-base md:text-lg font-medium"
                                     />
                                     <button
                                         disabled={status === "loading"}
-                                        className="absolute right-2.5 top-2.5 bottom-2.5 px-6 rounded-xl bg-white text-black font-bold flex items-center gap-2 hover:bg-neutral-200 transition-all disabled:opacity-50"
+                                        className="w-full md:w-auto px-8 py-4 rounded-2xl bg-white text-black font-bold flex items-center justify-center gap-2 hover:bg-neutral-200 transition-all disabled:opacity-50 whitespace-nowrap"
                                     >
                                         {status === "loading" ? "..." : (
                                             <>
@@ -65,20 +65,20 @@ export function NewsletterSection() {
                                         )}
                                     </button>
                                 </div>
-                                <p className="text-[11px] text-neutral-500 font-medium px-4">
+                                <p className="text-[11px] text-neutral-500 font-medium px-4 text-center md:text-left">
                                     No spam. Only high-quality technical content. Unsubscribe at any time.
                                 </p>
                             </form>
                         )}
 
-                        <div className="flex items-center gap-6 px-4">
+                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-6 px-4">
                             {[
-                                "Latest release notes",
-                                "Component sneak peeks",
+                                "Latest releases",
+                                "Component peeks",
                                 "Performance tips"
                             ].map((text) => (
                                 <div key={text} className="flex items-center gap-2 text-[10px] md:text-xs font-bold text-neutral-400 uppercase tracking-wider">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
                                     {text}
                                 </div>
                             ))}
