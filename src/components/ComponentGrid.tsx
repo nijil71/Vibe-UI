@@ -19,7 +19,7 @@ import {
     Megaphone
 } from "lucide-react"
 
-const components = [
+export const components = [
     {
         id: 1,
         title: "SaaS Dashboard Overview",

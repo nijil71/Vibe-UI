@@ -13,8 +13,8 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold text-sm mb-6 uppercase tracking-widest">Resources</h4>
             <ul className="space-y-4 text-sm text-neutral-500">
-              <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Components</a></li>
+              <li><a href="/docs" className="hover:text-white transition-colors">Documentation</a></li>
+              <li><a href="/components" className="hover:text-white transition-colors">Components</a></li>
               {/* <li><a href="#" className="hover:text-white transition-colors">Changelog</a></li> */}
             </ul>
           </div>

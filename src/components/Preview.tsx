@@ -2,7 +2,12 @@
 
 import { motion } from "framer-motion"
 
+import { components } from "./ComponentGrid"
+
 function DynamicPreview() {
+  const componentCount = components.length
+
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 60, rotateX: 4 }}
@@ -91,19 +96,22 @@ function DynamicPreview() {
         className="hidden sm:block absolute -top-6 -right-6 md:-top-10 md:-right-10 p-4 md:p-6 rounded-2xl bg-[#121212] border border-white/10 shadow-xl backdrop-blur-md"
       >
         <p className="text-[10px] md:text-xs text-neutral-400 mb-1">Components</p>
-        <p className="text-xl md:text-2xl font-semibold text-white">48</p>
+        <p className="text-xl md:text-2xl font-semibold text-white">
+          {componentCount}
+        </p>
       </motion.div>
 
       {/* Floating Metric Card 2 - Hidden on small mobile */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.45 }}
         className="hidden sm:block absolute -bottom-10 left-6 md:-bottom-16 md:left-10 p-4 md:p-6 rounded-2xl bg-[#121212] border border-white/10 shadow-xl"
       >
-        <p className="text-[10px] md:text-xs text-neutral-400 mb-1">Layouts</p>
-        <p className="text-xl md:text-2xl font-semibold text-white">21</p>
-      </motion.div>
+<p className="text-[10px] md:text-xs text-neutral-400 mb-1">License</p>
+<p className="text-xl md:text-2xl font-semibold text-white">Open Source</p>
+
+      </motion.div> */}
 
     </motion.div>
   )
