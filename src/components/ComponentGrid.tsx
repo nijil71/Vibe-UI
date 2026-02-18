@@ -151,18 +151,37 @@ export const components = [
 ]
 
 import Link from "next/link"
-import { ArrowRight, Search, X } from "lucide-react"
+import { ArrowRight, Search, X, SlidersHorizontal, ChevronDown, ChevronUp } from "lucide-react"
 import { useState, useMemo } from "react"
+import { cn } from "@/lib/utils"
 
 export function ComponentGrid({ limit }: { limit?: number }) {
     const [searchQuery, setSearchQuery] = useState("")
+    const [selectedTag, setSelectedTag] = useState<string>("All")
+    const [isExpanded, setIsExpanded] = useState(false)
+
+    const allTags = useMemo(() => {
+        const tags = new Set<string>(["All"])
+        components.forEach(comp => comp.tags.forEach(tag => tags.add(tag)))
+        return Array.from(tags)
+    }, [])
+
+    const visibleTags = useMemo(() => {
+        if (isExpanded) return allTags
+        return allTags.slice(0, 8)
+    }, [allTags, isExpanded])
+
     const displayedComponents = useMemo(() => {
-        const filtered = components.filter(comp =>
-            comp.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            comp.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
-        )
+        const filtered = components.filter(comp => {
+            const matchesSearch = comp.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                comp.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+
+            const matchesTag = selectedTag === "All" || comp.tags.includes(selectedTag)
+
+            return matchesSearch && matchesTag
+        })
         return limit ? filtered.slice(0, limit) : filtered
-    }, [searchQuery, limit])
+    }, [searchQuery, selectedTag, limit])
 
     return (
         <section id="components" className="py-24 px-6 max-w-7xl mx-auto">
@@ -207,6 +226,41 @@ export function ComponentGrid({ limit }: { limit?: number }) {
                     </Link>
                 )}
             </div>
+
+            {!limit && (
+                <div className="flex flex-wrap items-center gap-2 mb-12">
+                    <div className="flex items-center gap-2 mr-2 text-white/30 text-xs font-bold uppercase tracking-widest">
+                        <SlidersHorizontal className="w-3 h-3" />
+                        Filter
+                    </div>
+                    {visibleTags.map((tag) => (
+                        <button
+                            key={tag}
+                            onClick={() => setSelectedTag(tag)}
+                            className={cn(
+                                "px-5 py-2 rounded-full text-sm font-medium transition-all border",
+                                selectedTag === tag
+                                    ? "bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+                                    : "bg-white/5 text-white/50 border-white/10 hover:border-white/20 hover:text-white"
+                            )}
+                        >
+                            {tag}
+                        </button>
+                    ))}
+                    {allTags.length > 8 && (
+                        <button
+                            onClick={() => setIsExpanded(!isExpanded)}
+                            className="flex items-center gap-1.5 px-5 py-2 rounded-full text-sm font-bold transition-all border border-blue-500/20 bg-blue-500/10 text-blue-400 hover:bg-blue-500/20"
+                        >
+                            {isExpanded ? (
+                                <>Less <ChevronUp className="w-3 h-3" /></>
+                            ) : (
+                                <>+{allTags.length - 8} More <ChevronDown className="w-3 h-3" /></>
+                            )}
+                        </button>
+                    )}
+                </div>
+            )}
 
             {displayedComponents.length === 0 ? (
                 <div className="py-20 text-center border border-dashed border-white/10 rounded-3xl">
