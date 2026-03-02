@@ -14,6 +14,8 @@ import { FaqSection } from "@/components/sections/FaqSection"
 import { StatsWall } from "@/components/sections/StatsWall"
 import { NewsletterSection } from "@/components/sections/NewsletterSection"
 import { CtaSection } from "@/components/sections/CtaSection"
+import { FeatureCards } from "@/components/sections/FeatureCards"
+import { FooterAdvanced } from "@/components/sections/FooterAdvanced"
 
 export const COMPONENTS = {
   "dashboard-stats": {
@@ -1243,6 +1245,157 @@ export function CtaSection() {
             </div>
         </div>
     )
+}`
+  },
+  "feature-cards": {
+    title: "Feature Benefit Cards",
+    description: "Elegant grid of feature cards with interactive hover highlights.",
+    component: FeatureCards,
+    code: `"use client"
+import React from "react"
+import { motion } from "framer-motion"
+import { Shield, FastForward, Globe, Layers, ArrowRight } from "lucide-react"
+
+const features = [
+  {
+    title: "Bank-grade Security",
+    description: "Your data is encrypted at rest and in transit. We comply with SOC2, GDPR, and HIPAA.",
+    icon: Shield,
+    color: "blue"
+  },
+  {
+    title: "Lightning Fast",
+    description: "Built on edge infrastructure, delivering sub-50ms response times globally.",
+    icon: FastForward,
+    color: "violet"
+  },
+  {
+    title: "Global CDN",
+    description: "Assets are cached across 300+ edge nodes to ensure maximum availability.",
+    icon: Globe,
+    color: "emerald"
+  },
+  {
+    title: "Seamless Integration",
+    description: "Connect with your existing tools in just a few clicks using our native plugins.",
+    icon: Layers,
+    color: "amber"
+  }
+]
+
+export function FeatureCards() {
+  return (
+    <div className="w-full max-w-7xl mx-auto py-24 px-6">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Why choose VibeUI?</h2>
+        <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
+          We provide the foundational building blocks for modern web applications, focusing on performance, developer experience, and design.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {features.map((feature, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1 }}
+            viewport={{ once: true }}
+            className="group relative p-8 rounded-3xl bg-neutral-900 border border-white/5 overflow-hidden hover:bg-neutral-800 transition-colors"
+          >
+            <div className={\`absolute top-0 left-0 w-full h-1 bg-\${feature.color}-500/50 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300\`} />
+            
+            <div className={\`w-12 h-12 rounded-2xl bg-\${feature.color}-500/10 flex items-center justify-center mb-6 text-\${feature.color}-400\`}>
+              <feature.icon className="w-6 h-6" />
+            </div>
+            
+            <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+            <p className="text-neutral-500 text-sm leading-relaxed mb-6">
+              {feature.description}
+            </p>
+            
+            <button className={\`flex items-center gap-2 text-\${feature.color}-400 text-sm font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity\`}>
+              Learn more <ArrowRight className="w-4 h-4" />
+            </button>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  )
+}`
+  },
+  "footer-advanced": {
+    title: "Advanced Global Footer",
+    description: "Comprehensive site foundation with deep links and social integration.",
+    component: FooterAdvanced,
+    code: `"use client"
+import React from "react"
+import { motion } from "framer-motion"
+import { Twitter, Github, Linkedin, Disc } from "lucide-react"
+
+export function FooterAdvanced() {
+  return (
+    <footer className="w-full bg-neutral-950 border-t border-white/5 pt-24 pb-12 mt-24">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="md:col-span-1">
+          <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500 mb-6">VibeUI</h3>
+          <p className="text-neutral-500 text-sm leading-relaxed max-w-xs mb-8">
+            The premium UI library for shipping secure, fast, and beautiful cloud infrastructure interfaces.
+          </p>
+          <div className="flex gap-4">
+            {[Twitter, Github, Linkedin, Disc].map((Icon, i) => (
+              <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-neutral-400 hover:bg-blue-500/10 hover:text-blue-400 transition-colors">
+                <Icon className="w-4 h-4" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h4 className="text-white font-bold mb-6">Product</h4>
+          <ul className="space-y-4">
+            {["Features", "Integrations", "Pricing", "Changelog", "Docs"].map((link) => (
+              <li key={link}>
+                <a href="#" className="text-neutral-500 text-sm hover:text-white transition-colors">{link}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="text-white font-bold mb-6">Company</h4>
+          <ul className="space-y-4">
+            {["About Us", "Careers", "Blog", "Contact", "Partners"].map((link) => (
+              <li key={link}>
+                <a href="#" className="text-neutral-500 text-sm hover:text-white transition-colors">{link}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="text-white font-bold mb-6">Legal</h4>
+          <ul className="space-y-4">
+            {["Privacy Policy", "Terms of Service", "Cookie Policy", "Security", "Compliance"].map((link) => (
+              <li key={link}>
+                <a href="#" className="text-neutral-500 text-sm hover:text-white transition-colors">{link}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p className="text-neutral-600 text-sm">
+          © {new Date().getFullYear()} VibeUI. All rights reserved.
+        </p>
+        <div className="flex items-center gap-2 text-neutral-600 text-sm font-medium">
+          <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+          All systems operational
+        </div>
+      </div>
+    </footer>
+  )
 }`
   }
 }

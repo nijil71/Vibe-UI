@@ -16,7 +16,9 @@ import {
     HelpCircle,
     TrendingUp,
     Mail,
-    Megaphone
+    Megaphone,
+    Layers,
+    Monitor
 } from "lucide-react"
 
 export const components = [
@@ -147,6 +149,22 @@ export const components = [
         href: "/components/cta",
         tags: ["Conversion", "Sales"],
         icon: Megaphone
+    },
+    {
+        id: 17,
+        title: "Feature Benefit Cards",
+        description: "Elegant grid of feature cards with interactive hover highlights.",
+        href: "/components/feature-cards",
+        tags: ["Product", "Features"],
+        icon: Layers
+    },
+    {
+        id: 18,
+        title: "Advanced Global Footer",
+        description: "Comprehensive site foundation with deep links and social integration.",
+        href: "/components/footer-advanced",
+        tags: ["Layout", "Navigation"],
+        icon: Monitor
     }
 ]
 
