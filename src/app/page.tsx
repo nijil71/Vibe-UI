@@ -10,8 +10,8 @@ export default function Home() {
       <Hero />
       <ComponentGrid limit={6} />
 
- 
- <Footer />
+
+      <Footer />
 
       {/* <RandomVibeButton /> */}
     </>

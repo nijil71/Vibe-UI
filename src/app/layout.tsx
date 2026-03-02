@@ -16,31 +16,104 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VibeUI - Premium Web Experience",
-  description: "A visually striking, ultra-premium component library built with Next.js & Tailwind CSS.",
+  metadataBase: new URL("https://vibeui.space"),
+
+  title: {
+    default: "VibeUI - Modern Next.js & Tailwind CSS Component Library",
+    template: "%s | VibeUI",
+  },
+
+  description:
+    "VibeUI is a modern open-source component library built with Next.js and Tailwind CSS. Beautiful, accessible, and customizable React UI components for building fast web applications.",
+
+  keywords: [
+    "Next.js component library",
+    "Tailwind CSS components",
+    "React UI components",
+    "Modern UI kit",
+    "Open source UI library",
+    "Accessible React components",
+    "Animated UI components",
+  ],
+
+  authors: [{ name: "VibeUI Team" }],
+  creator: "VibeUI",
+  publisher: "VibeUI",
+  category: "technology",
+
+  alternates: {
+    canonical: "https://vibeui.space",
+  },
+
+  openGraph: {
+    title: "VibeUI - Next.js & Tailwind CSS UI Components",
+    description:
+      "Build modern web apps faster with VibeUI. A clean, customizable, and accessible component library for Next.js and Tailwind CSS.",
+    url: "https://vibeui.space",
+    siteName: "VibeUI",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "VibeUI - Next.js & Tailwind CSS Component Library",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "VibeUI - Modern React UI Components",
+    description:
+      "Reusable Next.js and Tailwind CSS components for building clean, fast, and accessible web apps.",
+    images: ["/og-image.png"],
+    creator: "@vibeui",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 import LayoutWrapper from "@/components/LayoutWrapper";
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" className="dark">
       <head>
-        <meta name="google-site-verification" content="ANOhiFuO7uZy1rcMmknjYDZXTSb0J3pCGSfPecSvWgg" />
+        <meta
+          name="google-site-verification"
+          content="ANOhiFuO7uZy1rcMmknjYDZXTSb0J3pCGSfPecSvWgg"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background text-foreground selection:bg-blue-500/30 selection:text-white`}
       >
-        <LayoutWrapper>
-          {children}
-        </LayoutWrapper>
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );
