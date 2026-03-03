@@ -18,7 +18,9 @@ import {
     Mail,
     Megaphone,
     Layers,
-    Monitor
+    Monitor,
+    Cookie,
+    Hammer
 } from "lucide-react"
 
 export const components = [
@@ -165,6 +167,22 @@ export const components = [
         href: "/components/footer-advanced",
         tags: ["Layout", "Navigation"],
         icon: Monitor
+    },
+    {
+        id: 19,
+        title: "GDPR Cookie Consent",
+        description: "A highly customizable and non-intrusive cookie consent banner for privacy compliance.",
+        href: "/components/cookie-consent",
+        tags: ["Trust", "Privacy"],
+        icon: Cookie
+    },
+    {
+        id: 20,
+        title: "Under Maintenance",
+        description: "A beautiful maintenance page with a countdown timer to keep your users informed.",
+        href: "/components/maintenance-page",
+        tags: ["Layout", "Status"],
+        icon: Hammer
     }
 ]
 
