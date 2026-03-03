@@ -100,14 +100,14 @@ export function SidebarNavigation() {
                                 <span className={cn(
                                     "ml-auto px-2 py-0.5 rounded-full text-[10px] font-bold",
                                     item.badge === "New"
-                                        ? "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+                                        ? "bg-accent-blue/10 text-blue-400 border border-accent-blue/20"
                                         : "bg-red-500/10 text-red-400 border border-red-500/20"
                                 )}>
                                     {item.badge}
                                 </span>
                             )}
                             {item.active && (
-                                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-blue-500 rounded-r-full" />
+                                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-accent-blue rounded-r-full" />
                             )}
                         </button>
                     ))}

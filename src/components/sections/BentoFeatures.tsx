@@ -13,9 +13,9 @@ export function BentoFeatures() {
             <div className="grid grid-cols-1 md:grid-cols-6 gap-6 h-auto md:h-[600px]">
                 {/* Large Feature */}
                 <div className="md:col-span-3 rounded-3xl bg-neutral-900 border border-white/5 p-6 md:p-8 flex flex-col justify-between group overflow-hidden relative">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[100px] pointer-events-none -translate-y-12 translate-x-12" />
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-accent-blue/10 blur-[100px] pointer-events-none -translate-y-12 translate-x-12" />
                     <div>
-                        <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center border border-blue-500/20 mb-6 font-display">
+                        <div className="w-12 h-12 rounded-2xl bg-accent-blue/10 flex items-center justify-center border border-accent-blue/20 mb-6 font-display">
                             <Zap className="w-6 h-6 text-blue-400" />
                         </div>
                         <h3 className="text-2xl font-bold text-white mb-4">Lightning Performance</h3>
@@ -23,7 +23,7 @@ export function BentoFeatures() {
                     </div>
                     <div className="mt-8 rounded-xl bg-black/40 border border-white/5 p-4 flex gap-3 items-center">
                         <div className="h-2 flex-1 bg-white/5 rounded-full overflow-hidden">
-                            <div className="h-full bg-blue-500 w-3/4 animate-pulse" />
+                            <div className="h-full bg-accent-blue w-3/4 animate-pulse" />
                         </div>
                         <span className="text-[10px] uppercase tracking-widest text-blue-400 font-bold">Optimizing...</span>
                     </div>
@@ -33,7 +33,7 @@ export function BentoFeatures() {
                 <div className="md:col-span-3 rounded-3xl bg-neutral-900 border border-white/5 p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group">
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,_rgba(139,92,246,0.05)_0%,transparent_70%)]" />
                     <div>
-                        <div className="w-12 h-12 rounded-2xl bg-violet-500/10 flex items-center justify-center border border-violet-500/20 mb-6">
+                        <div className="w-12 h-12 rounded-2xl bg-accent-violet/10 flex items-center justify-center border border-accent-violet/20 mb-6">
                             <Shield className="w-6 h-6 text-violet-400" />
                         </div>
                         <h3 className="text-2xl font-bold text-white mb-4">Enterprise Security</h3>

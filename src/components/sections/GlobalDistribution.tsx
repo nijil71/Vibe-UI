@@ -8,7 +8,7 @@ export function GlobalDistribution() {
         <div className="w-full max-w-7xl mx-auto py-24 px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                 <div className="order-2 lg:order-1 relative">
-                    <div className="absolute inset-0 bg-blue-500/10 blur-[150px] rounded-full pointer-events-none" />
+                    <div className="absolute inset-0 bg-accent-blue/10 blur-[150px] rounded-full pointer-events-none" />
                     {/* Abstract Map Visualization */}
                     <div className="relative aspect-square rounded-3xl border border-white/5 bg-neutral-900/50 p-12 overflow-hidden flex items-center justify-center">
                         <Globe className="w-64 h-64 text-white/5 animate-spin-slow" />
@@ -30,8 +30,8 @@ export function GlobalDistribution() {
                                 style={{ top: pos.t, left: pos.l }}
                             >
                                 <div className="relative">
-                                    <div className="absolute inset-0 bg-blue-500 rounded-full animate-ping opacity-20" />
-                                    <div className="w-4 h-4 rounded-full bg-blue-500 border-4 border-neutral-900 z-10 relative" />
+                                    <div className="absolute inset-0 bg-accent-blue rounded-full animate-ping opacity-20" />
+                                    <div className="w-4 h-4 rounded-full bg-accent-blue border-4 border-neutral-900 z-10 relative" />
                                 </div>
                             </motion.div>
                         ))}
@@ -46,7 +46,7 @@ export function GlobalDistribution() {
                 </div>
 
                 <div className="order-1 lg:order-2">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-bold text-blue-400 uppercase tracking-widest mb-8">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-xs font-bold text-blue-400 uppercase tracking-widest mb-8">
                         Edge Network
                     </div>
                     <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">Zero latency, <br />worldwide.</h2>

@@ -9,8 +9,8 @@ export function HeroSplitForm() {
     return (
         <section className="relative w-full min-h-screen flex items-center px-6 py-24 overflow-hidden bg-neutral-950">
             {/* Background */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 blur-[180px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-violet-500/10 blur-[150px] rounded-full pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-blue/10 blur-[180px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-violet/10 blur-[150px] rounded-full pointer-events-none" />
 
             <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                 {/* Left — Content */}
@@ -44,7 +44,7 @@ export function HeroSplitForm() {
                             "Priority Discord community access"
                         ].map((item) => (
                             <div key={item} className="flex items-center gap-3">
-                                <div className="w-5 h-5 rounded-full bg-blue-500/10 flex items-center justify-center shrink-0">
+                                <div className="w-5 h-5 rounded-full bg-accent-blue/10 flex items-center justify-center shrink-0">
                                     <Check className="w-3 h-3 text-blue-400" />
                                 </div>
                                 <span className="text-neutral-300 text-sm font-medium">{item}</span>
@@ -93,7 +93,7 @@ export function HeroSplitForm() {
                                                 required
                                                 type="text"
                                                 placeholder="Jane Developer"
-                                                className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-neutral-950 border border-white/10 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500/40 transition-all text-sm font-medium"
+                                                className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-neutral-950 border border-white/10 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-accent-blue/40 transition-all text-sm font-medium"
                                             />
                                         </div>
                                     </div>
@@ -108,7 +108,7 @@ export function HeroSplitForm() {
                                                 required
                                                 type="email"
                                                 placeholder="jane@company.com"
-                                                className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-neutral-950 border border-white/10 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500/40 transition-all text-sm font-medium"
+                                                className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-neutral-950 border border-white/10 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-accent-blue/40 transition-all text-sm font-medium"
                                             />
                                         </div>
                                     </div>

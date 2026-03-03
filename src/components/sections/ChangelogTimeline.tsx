@@ -68,7 +68,7 @@ export function ChangelogTimeline() {
     return (
         <div className="w-full max-w-4xl mx-auto py-24 px-6">
             <div className="text-center mb-20">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-bold text-blue-400 uppercase tracking-widest mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-xs font-bold text-blue-400 uppercase tracking-widest mb-6">
                     <Tag className="w-3.5 h-3.5" /> Changelog
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">What&apos;s New</h2>
@@ -97,16 +97,16 @@ export function ChangelogTimeline() {
                                     }`}
                             >
                                 {/* Timeline Dot */}
-                                <div className="absolute left-[15px] md:left-1/2 md:-translate-x-1/2 w-[17px] h-[17px] rounded-full border-[3px] border-neutral-900 bg-blue-500 z-10 shadow-lg shadow-blue-500/30" />
+                                <div className="absolute left-[15px] md:left-1/2 md:-translate-x-1/2 w-[17px] h-[17px] rounded-full border-[3px] border-neutral-900 bg-accent-blue z-10 shadow-lg shadow-blue-500/30" />
 
                                 {/* Content Card */}
                                 <div className={`ml-14 md:ml-0 md:w-[calc(50%-40px)] ${isLeft ? "" : ""}`}>
                                     <div className="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-white/10 transition-all">
                                         {/* Meta */}
                                         <div className="flex items-center gap-3 mb-4 flex-wrap">
-                                            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border ${config.color === "blue" ? "bg-blue-500/10 border-blue-500/20 text-blue-400" :
-                                                    config.color === "amber" ? "bg-amber-500/10 border-amber-500/20 text-amber-400" :
-                                                        "bg-violet-500/10 border-violet-500/20 text-violet-400"
+                                            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border ${config.color === "blue" ? "bg-accent-blue/10 border-accent-blue/20 text-blue-400" :
+                                                config.color === "amber" ? "bg-amber-500/10 border-amber-500/20 text-amber-400" :
+                                                    "bg-accent-violet/10 border-accent-violet/20 text-violet-400"
                                                 }`}>
                                                 <config.icon className="w-3 h-3" />
                                                 {config.label}
@@ -130,9 +130,9 @@ export function ChangelogTimeline() {
                                         <ul className="space-y-3">
                                             {release.changes.map((change, j) => (
                                                 <li key={j} className="flex items-start gap-3 text-sm">
-                                                    <div className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${config.color === "blue" ? "bg-blue-500" :
-                                                            config.color === "amber" ? "bg-amber-500" :
-                                                                "bg-violet-500"
+                                                    <div className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${config.color === "blue" ? "bg-accent-blue" :
+                                                        config.color === "amber" ? "bg-amber-500" :
+                                                            "bg-accent-violet"
                                                         }`} />
                                                     <span className={`${change.startsWith("Breaking") ? "text-rose-400 font-medium" : "text-neutral-400"}`}>
                                                         {change}

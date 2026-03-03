@@ -50,7 +50,7 @@ export function SecuritySection() {
                 </div>
 
                 <div className="relative">
-                    <div className="absolute inset-0 bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+                    <div className="absolute inset-0 bg-accent-blue/5 blur-[120px] rounded-full pointer-events-none" />
                     <div className="grid grid-cols-1 gap-6 relative">
                         {features.map((f, i) => (
                             <motion.div

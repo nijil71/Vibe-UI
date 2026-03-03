@@ -79,7 +79,7 @@ export function BlogLayout() {
                         </p>
 
                         <div className="flex items-center gap-3 text-white font-bold uppercase tracking-widest text-[10px] group-hover:translate-x-2 transition-transform">
-                            Read Article <ArrowRight className="w-3 h-3 text-blue-500" />
+                            Read Article <ArrowRight className="w-3 h-3 text-accent-blue" />
                         </div>
                     </motion.article>
                 ))}

@@ -28,7 +28,7 @@ export function TeamSection() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {team.map((member, i) => (
-                    <div key={i} className="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-blue-500/30 transition-all duration-300">
+                    <div key={i} className="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-accent-blue/30 transition-all duration-300">
                         <div className="flex items-center gap-6 mb-8">
                             <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-white/5 border border-white/10 group-hover:scale-105 transition-transform duration-500">
                                 <img src={member.image} alt={member.name} className="w-full h-full object-cover" />

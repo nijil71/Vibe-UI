@@ -50,8 +50,8 @@ export function WorkflowSteps() {
                 {steps.map((step, i) => (
                     <div key={i} className="relative z-10 flex flex-col items-center text-center group">
                         <div className={`w-32 h-32 rounded-3xl border border-white/5 bg-neutral-900 flex items-center justify-center mb-8 relative transition-all duration-500 group-hover:scale-110 group-hover:border-white/20 group-hover:shadow-[0_0_50px_rgba(255,255,255,0.05)]`}>
-                            <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl ${step.color === 'blue' ? 'bg-blue-500/10' :
-                                step.color === 'violet' ? 'bg-violet-500/10' :
+                            <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl ${step.color === 'blue' ? 'bg-accent-blue/10' :
+                                step.color === 'violet' ? 'bg-accent-violet/10' :
                                     step.color === 'emerald' ? 'bg-emerald-500/10' : 'bg-amber-500/10'
                                 }`} />
                             <step.icon className={`w-8 h-8 relative z-10 transition-colors duration-300 ${step.color === 'blue' ? 'text-blue-400' :

@@ -56,7 +56,7 @@ export function FaqSection() {
                             </span>
                             <div className={cn(
                                 "p-2 rounded-xl border transition-all",
-                                openIndex === i ? "bg-blue-600 border-blue-500 rotate-0" : "bg-white/5 border-white/5 group-hover:border-white/10"
+                                openIndex === i ? "bg-blue-600 border-accent-blue rotate-0" : "bg-white/5 border-white/5 group-hover:border-white/10"
                             )}>
                                 {openIndex === i ? <Minus className="w-4 h-4 text-white" /> : <Plus className="w-4 h-4 text-neutral-500" />}
                             </div>

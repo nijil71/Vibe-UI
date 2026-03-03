@@ -10,8 +10,8 @@ export function LoginForm() {
     return (
         <div className="w-full min-h-screen flex items-center justify-center p-6 bg-neutral-950 relative overflow-hidden">
             {/* Ambient Background */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 blur-[180px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-violet-500/10 blur-[150px] rounded-full pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-blue/10 blur-[180px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent-violet/10 blur-[150px] rounded-full pointer-events-none" />
 
             <div className="relative z-10 w-full max-w-md">
                 {/* Card */}
@@ -61,7 +61,7 @@ export function LoginForm() {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     placeholder="you@company.com"
-                                    className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-neutral-950 border border-white/10 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500/40 transition-all text-sm font-medium"
+                                    className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-neutral-950 border border-white/10 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-accent-blue/40 transition-all text-sm font-medium"
                                 />
                             </div>
                         </div>
@@ -82,7 +82,7 @@ export function LoginForm() {
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     placeholder="••••••••"
-                                    className="w-full pl-11 pr-12 py-3.5 rounded-xl bg-neutral-950 border border-white/10 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500/40 transition-all text-sm font-medium"
+                                    className="w-full pl-11 pr-12 py-3.5 rounded-xl bg-neutral-950 border border-white/10 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-accent-blue/40 transition-all text-sm font-medium"
                                 />
                                 <button
                                     type="button"
@@ -118,7 +118,7 @@ export function LoginForm() {
                         256-bit SSL
                     </span>
                     <span className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
                         SOC2 Compliant
                     </span>
                 </div>
