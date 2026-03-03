@@ -1,5 +1,8 @@
 "use client"
 import { ComponentCard } from "./ComponentCard"
+import Link from "next/link"
+import { useState, useMemo } from "react"
+import { cn } from "@/lib/utils"
 import {
     BarChart3,
     Grid,
@@ -20,7 +23,16 @@ import {
     Layers,
     Monitor,
     Cookie,
-    Hammer
+    Hammer,
+    ArrowRight,
+    Search,
+    X,
+    SlidersHorizontal,
+    ChevronDown,
+    ChevronUp,
+    KeyRound,
+    ScrollText,
+    AlertTriangle
 } from "lucide-react"
 
 export const components = [
@@ -183,13 +195,32 @@ export const components = [
         href: "/components/maintenance-page",
         tags: ["Layout", "Status"],
         icon: Hammer
+    },
+    {
+        id: 21,
+        title: "Login / Auth Form",
+        description: "A sleek authentication card with email & password fields and social OAuth buttons.",
+        href: "/components/login-form",
+        tags: ["Auth", "Form"],
+        icon: KeyRound
+    },
+    {
+        id: 22,
+        title: "Changelog Timeline",
+        description: "A vertical timeline of product releases with version tags and rich descriptions.",
+        href: "/components/changelog-timeline",
+        tags: ["Content", "Updates"],
+        icon: ScrollText
+    },
+    {
+        id: 23,
+        title: "404 Not Found Page",
+        description: "A custom animated 404 page with a glitch effect and a call-to-action to return home.",
+        href: "/components/not-found-page",
+        tags: ["Layout", "Status"],
+        icon: AlertTriangle
     }
 ]
-
-import Link from "next/link"
-import { ArrowRight, Search, X, SlidersHorizontal, ChevronDown, ChevronUp } from "lucide-react"
-import { useState, useMemo } from "react"
-import { cn } from "@/lib/utils"
 
 export function ComponentGrid({ limit }: { limit?: number }) {
     const [searchQuery, setSearchQuery] = useState("")
@@ -300,7 +331,7 @@ export function ComponentGrid({ limit }: { limit?: number }) {
 
             {displayedComponents.length === 0 ? (
                 <div className="py-20 text-center border border-dashed border-white/10 rounded-3xl">
-                    <p className="text-neutral-500 text-lg">No components found matching "{searchQuery}"</p>
+                    <p className="text-neutral-500 text-lg">No components found matching &quot;{searchQuery}&quot;</p>
                     <button
                         onClick={() => setSearchQuery("")}
                         className="mt-4 text-accent-blue hover:underline font-medium text-sm"

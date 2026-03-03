@@ -58,23 +58,10 @@ export function Navbar() {
                     >
                         GitHub
                     </Link>
-{/* 
-                    <Link
-                        href="/premium"
-                        className="ml-2 text-sm font-medium bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors shadow-sm tracking-tight"
-                    >
-                        Get Pro
-                    </Link> */}
                 </div>
 
                 {/* Mobile Menu Button */}
                 <div className="md:hidden flex items-center gap-4">
-                    {/* <Link
-                        href="/premium"
-                        className="text-xs font-medium bg-white text-black px-4 py-2 rounded-full hover:bg-gray-200 transition-colors shadow-sm tracking-tight"
-                    >
-                        Get Pro
-                    </Link> */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
                         className="relative z-50 text-white p-2 hover:bg-white/5 rounded-xl transition-colors"
@@ -119,15 +106,7 @@ export function Navbar() {
                                 </Link>
                             </div>
 
-                            {/* <div className="mt-auto pb-12">
-                                <Link
-                                    href="/premium"
-                                    onClick={() => setIsOpen(false)}
-                                    className="flex items-center justify-center w-full py-5 rounded-2xl bg-white text-black font-bold text-lg hover:bg-neutral-200 transition-colors shadow-[0_20px_40px_-10px_rgba(255,255,255,0.2)]"
-                                >
-                                    Upgrade to Pro
-                                </Link>
-                            </div> */}
+
                         </div>
                     </motion.div>
                 )}

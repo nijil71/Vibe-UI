@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils"
 import { COMPONENTS } from "@/data/components"
 import Footer from "@/components/Footer"
 
-export function ComponentDetailClient({ slug }: { slug: string }) {
+export function ComponentDetailClient({ slug, codeString, codeHtml }: { slug: string, codeString: string, codeHtml: string }) {
     const data = COMPONENTS[slug as keyof typeof COMPONENTS]
 
     // Safety check, though page.tsx should handle 404
@@ -160,7 +160,7 @@ export function ComponentDetailClient({ slug }: { slug: string }) {
                         </div>
                     ) : (
                         <div className="max-w-5xl mx-auto px-6">
-                            <CodeBlock code={data.code} language="tsx" />
+                            <CodeBlock code={codeString} language="tsx" highlightedHtml={codeHtml} />
                         </div>
                     )}
                 </motion.div>

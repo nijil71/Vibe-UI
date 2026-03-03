@@ -101,17 +101,8 @@ function DynamicPreview() {
         </p>
       </motion.div>
 
-      {/* Floating Metric Card 2 - Hidden on small mobile */}
-      {/* <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.45 }}
-        className="hidden sm:block absolute -bottom-10 left-6 md:-bottom-16 md:left-10 p-4 md:p-6 rounded-2xl bg-[#121212] border border-white/10 shadow-xl"
-      >
-<p className="text-[10px] md:text-xs text-neutral-400 mb-1">License</p>
-<p className="text-xl md:text-2xl font-semibold text-white">Open Source</p>
 
-      </motion.div> */}
+
 
     </motion.div>
   )

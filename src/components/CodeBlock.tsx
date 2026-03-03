@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Check, Copy } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
-export function CodeBlock({ code, language = "tsx" }: { code: string; language?: string }) {
+export function CodeBlock({ code, language = "tsx", highlightedHtml }: { code: string; language?: string; highlightedHtml?: string }) {
     const [copied, setCopied] = useState(false)
 
     const handleCopy = async () => {
@@ -46,9 +46,16 @@ export function CodeBlock({ code, language = "tsx" }: { code: string; language?:
             </div>
 
             <div className="p-4 overflow-x-auto custom-scrollbar scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
-                <pre className="text-[13px] md:text-sm font-mono text-white/80 leading-relaxed font-ligatures-none min-w-full inline-block">
-                    <code className="whitespace-pre">{code}</code>
-                </pre>
+                {highlightedHtml ? (
+                    <div
+                        className="text-[13px] md:text-sm font-mono leading-relaxed font-ligatures-none min-w-full inline-block [&_pre]:!bg-transparent [&_code]:!bg-transparent"
+                        dangerouslySetInnerHTML={{ __html: highlightedHtml }}
+                    />
+                ) : (
+                    <pre className="text-[13px] md:text-sm font-mono text-white/80 leading-relaxed font-ligatures-none min-w-full inline-block">
+                        <code className="whitespace-pre">{code}</code>
+                    </pre>
+                )}
             </div>
         </div>
     )
