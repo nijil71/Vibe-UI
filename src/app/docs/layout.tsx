@@ -21,7 +21,7 @@ const docsNavigation = [
         items: [
             { title: "Introduction", href: "/docs", icon: BookOpen },
             { title: "Installation", href: "/docs/installation", icon: Terminal },
-            // { title: "Theming", href: "/docs/theming", icon: Palette },
+            { title: "Theming", href: "/docs/theming", icon: Palette },
         ]
     },
     {
@@ -90,13 +90,20 @@ export default function DocsLayout({
                         ))}
                     </nav>
 
-                    <div className="pt-8 border-t border-white/5">
+                    <div className="pt-8 border-t border-white/5 space-y-1">
                         <Link
                             href="https://github.com/nijil71/Vibe-UI"
                             target="_blank"
                             className="flex items-center gap-2 px-4 py-2 text-xs text-neutral-500 hover:text-white transition-colors"
                         >
                             Github <ExternalLink className="w-3 h-3" />
+                        </Link>
+                        <Link
+                            href="https://github.com/nijil71/Vibe-UI/blob/main/CONTRIBUTING.md"
+                            target="_blank"
+                            className="flex items-center gap-2 px-4 py-2 text-xs text-neutral-500 hover:text-white transition-colors"
+                        >
+                            Contributing <ExternalLink className="w-3 h-3" />
                         </Link>
                     </div>
                 </div>

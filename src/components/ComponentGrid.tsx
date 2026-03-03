@@ -32,7 +32,11 @@ import {
     ChevronUp,
     KeyRound,
     ScrollText,
-    AlertTriangle
+    AlertTriangle,
+    Maximize,
+    Video,
+    PanelLeft,
+    SplitSquareHorizontal
 } from "lucide-react"
 
 export const components = [
@@ -219,6 +223,38 @@ export const components = [
         href: "/components/not-found-page",
         tags: ["Layout", "Status"],
         icon: AlertTriangle
+    },
+    {
+        id: 24,
+        title: "Centered Hero",
+        description: "A bold centered hero section with gradient heading and dual CTA buttons.",
+        href: "/components/hero-centered",
+        tags: ["Hero", "Layout"],
+        icon: Maximize
+    },
+    {
+        id: 25,
+        title: "Video Background Hero",
+        description: "A cinematic hero with full-width background video and layered content.",
+        href: "/components/hero-video",
+        tags: ["Hero", "Media"],
+        icon: Video
+    },
+    {
+        id: 26,
+        title: "Hero with Signup Form",
+        description: "Split-layout hero with headline on the left and a waitlist form card on the right.",
+        href: "/components/hero-split-form",
+        tags: ["Hero", "Form"],
+        icon: SplitSquareHorizontal
+    },
+    {
+        id: 27,
+        title: "Sidebar Navigation",
+        description: "A collapsible sidebar with grouped nav items, active states, and user profile.",
+        href: "/components/sidebar-navigation",
+        tags: ["Navigation", "Dashboard"],
+        icon: PanelLeft
     }
 ]
 
@@ -342,7 +378,7 @@ export function ComponentGrid({ limit }: { limit?: number }) {
             ) : null}
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {displayedComponents.map((component) => (
+                {displayedComponents.map((component, index) => (
                     <ComponentCard
                         key={component.id}
                         title={component.title}
@@ -350,6 +386,7 @@ export function ComponentGrid({ limit }: { limit?: number }) {
                         href={component.href}
                         tags={component.tags}
                         icon={component.icon}
+                        index={index}
                     />
                 ))}
             </div>

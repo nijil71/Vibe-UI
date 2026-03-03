@@ -1,28 +1,34 @@
-import { DashboardStats } from "@/components/sections/DashboardStats"
-import { BentoFeatures } from "@/components/sections/BentoFeatures"
-import { PricingTable } from "@/components/sections/PricingTable"
-import { ApiQuickstart } from "@/components/sections/ApiQuickstart"
-import { TeamSection } from "@/components/sections/TeamSection"
-import { WorkflowSteps } from "@/components/sections/WorkflowSteps"
-import { Testimonials } from "@/components/sections/Testimonials"
-import { SecuritySection } from "@/components/sections/SecuritySection"
-import { InfraSection } from "@/components/sections/InfraSection"
-import { GlobalDistribution } from "@/components/sections/GlobalDistribution"
-import { IntegrationsSection } from "@/components/sections/IntegrationsSection"
-import { BlogLayout } from "@/components/sections/BlogLayout"
-import { FaqSection } from "@/components/sections/FaqSection"
-import { StatsWall } from "@/components/sections/StatsWall"
-import { NewsletterSection } from "@/components/sections/NewsletterSection"
-import { CtaSection } from "@/components/sections/CtaSection"
-import { FeatureCards } from "@/components/sections/FeatureCards"
-import { FooterAdvanced } from "@/components/sections/FooterAdvanced"
-import { CookieConsent } from "@/components/sections/CookieConsent"
-import { MaintenanceSection } from "@/components/sections/MaintenanceSection"
-import { LoginForm } from "@/components/sections/LoginForm"
-import { ChangelogTimeline } from "@/components/sections/ChangelogTimeline"
-import { NotFoundPage } from "@/components/sections/NotFoundPage"
+import dynamic from "next/dynamic"
 
-export const COMPONENTS = {
+const DashboardStats = dynamic(() => import("@/components/sections/DashboardStats").then(m => ({ default: m.DashboardStats })))
+const BentoFeatures = dynamic(() => import("@/components/sections/BentoFeatures").then(m => ({ default: m.BentoFeatures })))
+const PricingTable = dynamic(() => import("@/components/sections/PricingTable").then(m => ({ default: m.PricingTable })))
+const ApiQuickstart = dynamic(() => import("@/components/sections/ApiQuickstart").then(m => ({ default: m.ApiQuickstart })))
+const TeamSection = dynamic(() => import("@/components/sections/TeamSection").then(m => ({ default: m.TeamSection })))
+const WorkflowSteps = dynamic(() => import("@/components/sections/WorkflowSteps").then(m => ({ default: m.WorkflowSteps })))
+const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then(m => ({ default: m.Testimonials })))
+const SecuritySection = dynamic(() => import("@/components/sections/SecuritySection").then(m => ({ default: m.SecuritySection })))
+const InfraSection = dynamic(() => import("@/components/sections/InfraSection").then(m => ({ default: m.InfraSection })))
+const GlobalDistribution = dynamic(() => import("@/components/sections/GlobalDistribution").then(m => ({ default: m.GlobalDistribution })))
+const IntegrationsSection = dynamic(() => import("@/components/sections/IntegrationsSection").then(m => ({ default: m.IntegrationsSection })))
+const BlogLayout = dynamic(() => import("@/components/sections/BlogLayout").then(m => ({ default: m.BlogLayout })))
+const FaqSection = dynamic(() => import("@/components/sections/FaqSection").then(m => ({ default: m.FaqSection })))
+const StatsWall = dynamic(() => import("@/components/sections/StatsWall").then(m => ({ default: m.StatsWall })))
+const NewsletterSection = dynamic(() => import("@/components/sections/NewsletterSection").then(m => ({ default: m.NewsletterSection })))
+const CtaSection = dynamic(() => import("@/components/sections/CtaSection").then(m => ({ default: m.CtaSection })))
+const FeatureCards = dynamic(() => import("@/components/sections/FeatureCards").then(m => ({ default: m.FeatureCards })))
+const FooterAdvanced = dynamic(() => import("@/components/sections/FooterAdvanced").then(m => ({ default: m.FooterAdvanced })))
+const CookieConsent = dynamic(() => import("@/components/sections/CookieConsent").then(m => ({ default: m.CookieConsent })))
+const MaintenanceSection = dynamic(() => import("@/components/sections/MaintenanceSection").then(m => ({ default: m.MaintenanceSection })))
+const LoginForm = dynamic(() => import("@/components/sections/LoginForm").then(m => ({ default: m.LoginForm })))
+const ChangelogTimeline = dynamic(() => import("@/components/sections/ChangelogTimeline").then(m => ({ default: m.ChangelogTimeline })))
+const NotFoundPage = dynamic(() => import("@/components/sections/NotFoundPage").then(m => ({ default: m.NotFoundPage })))
+const HeroCentered = dynamic(() => import("@/components/sections/HeroCentered").then(m => ({ default: m.HeroCentered })))
+const HeroVideo = dynamic(() => import("@/components/sections/HeroVideo").then(m => ({ default: m.HeroVideo })))
+const HeroSplitForm = dynamic(() => import("@/components/sections/HeroSplitForm").then(m => ({ default: m.HeroSplitForm })))
+const SidebarNavigation = dynamic(() => import("@/components/sections/SidebarNavigation").then(m => ({ default: m.SidebarNavigation })))
+
+export const COMPONENTS: Record<string, { title: string; description: string; component: React.ComponentType }> = {
   "dashboard-stats": {
     title: "SaaS Dashboard Overview",
     description: "A comprehensive analytics block featuring key performance metrics, real-time trends, and trend indicators. Perfect for admin panels and monitoring systems.",
@@ -137,5 +143,25 @@ export const COMPONENTS = {
     title: "404 Not Found Page",
     description: "A custom, animated 404 page with a glitch effect and a prominent call-to-action to return home.",
     component: NotFoundPage,
+  },
+  "hero-centered": {
+    title: "Centered Hero",
+    description: "A bold, centered hero section with gradient heading, dual CTAs, and radial background effects.",
+    component: HeroCentered,
+  },
+  "hero-video": {
+    title: "Video Background Hero",
+    description: "A cinematic hero with full-width background video, dark overlay, and layered content.",
+    component: HeroVideo,
+  },
+  "hero-split-form": {
+    title: "Hero with Signup Form",
+    description: "A split-layout hero with headline and value props on the left and a waitlist form card on the right.",
+    component: HeroSplitForm,
+  },
+  "sidebar-navigation": {
+    title: "Sidebar Navigation",
+    description: "A collapsible sidebar with grouped nav items, active states, badges, search, and user profile.",
+    component: SidebarNavigation,
   },
 }

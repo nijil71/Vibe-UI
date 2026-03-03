@@ -31,6 +31,10 @@ const COMPONENT_FILE_MAP: Record<string, string> = {
     "login-form": "LoginForm.tsx",
     "changelog-timeline": "ChangelogTimeline.tsx",
     "not-found-page": "NotFoundPage.tsx",
+    "hero-centered": "HeroCentered.tsx",
+    "hero-video": "HeroVideo.tsx",
+    "hero-split-form": "HeroSplitForm.tsx",
+    "sidebar-navigation": "SidebarNavigation.tsx",
 }
 
 export function generateStaticParams() {
@@ -50,6 +54,26 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
         title: `${componentData.title} - VibeUI`,
         description: componentData.description,
+        openGraph: {
+            title: `${componentData.title} - VibeUI Component`,
+            description: componentData.description,
+            url: `https://vibeui.space/components/${slug}`,
+            siteName: "VibeUI",
+            type: "article",
+            images: [
+                {
+                    url: "/og-image.png",
+                    width: 1200,
+                    height: 630,
+                    alt: `${componentData.title} - VibeUI`,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: `${componentData.title} - VibeUI`,
+            description: componentData.description,
+        },
     }
 }
 

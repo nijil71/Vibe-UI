@@ -15,6 +15,7 @@ export default function Footer() {
           <ul className="space-y-4 text-sm text-neutral-500">
             <li><a href="/docs" className="hover:text-white transition-colors">Documentation</a></li>
             <li><a href="/components" className="hover:text-white transition-colors">Components</a></li>
+            <li><a href="https://github.com/nijil71/Vibe-UI/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Contributing</a></li>
           </ul>
         </div>
         <div>
@@ -25,6 +26,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-white/5 border border-white/5 text-neutral-400 hover:text-white hover:border-white/10 transition-all"
+              aria-label="View on GitHub"
             >
               <Github className="w-4 h-4" />
             </a>

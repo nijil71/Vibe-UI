@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
-/* @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap'); */
+/* Global focus-visible styles for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
 
 @theme {
   --color-background: #0a0a0a;
@@ -25,8 +30,8 @@
   --color-border-glass: rgba(255, 255, 255, 0.05);
 
   /* Fonts */
-  --font-display: "Outfit", system-ui;
-  --font-sans: "Outfit", system-ui;
+  --font-display: var(--font-outfit, "Outfit", system-ui);
+  --font-sans: var(--font-outfit, "Outfit", system-ui);
   --font-mono: var(--font-geist-mono);
 
   /* Animations */
