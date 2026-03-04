@@ -69,7 +69,7 @@ export function LoginForm() {
                         <div>
                             <div className="flex justify-between items-center mb-2">
                                 <label className="block text-xs font-bold text-neutral-400 uppercase tracking-widest">Password</label>
-                                <button type="button" className="text-xs text-accent-bluehover:text-blue-300 font-medium transition-colors">
+                                <button type="button" className="text-xs text-accent-blue hover:text-blue-300 font-medium transition-colors">
                                     Forgot password?
                                 </button>
                             </div>
@@ -105,7 +105,7 @@ export function LoginForm() {
                     {/* Footer */}
                     <p className="text-center text-sm text-neutral-500 mt-8">
                         Don&apos;t have an account?{" "}
-                        <button className="text-white font-semibold hover:text-accent-bluetransition-colors">
+                        <button className="text-white font-semibold hover:text-accent-blue transition-colors">
                             Create one
                         </button>
                     </p>
