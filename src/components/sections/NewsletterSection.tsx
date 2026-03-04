@@ -21,7 +21,7 @@ export function NewsletterSection() {
 
                 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div>
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-xs font-bold text-blue-400 uppercase tracking-widest mb-8">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-xs font-bold text-accent-blue uppercase tracking-widest mb-8">
                             <Sparkles className="w-3.5 h-3.5" /> Weekly Insights
                         </div>
                         <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-tight">

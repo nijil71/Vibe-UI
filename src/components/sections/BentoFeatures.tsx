@@ -16,7 +16,7 @@ export function BentoFeatures() {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-accent-blue/10 blur-[100px] pointer-events-none -translate-y-12 translate-x-12" />
                     <div>
                         <div className="w-12 h-12 rounded-2xl bg-accent-blue/10 flex items-center justify-center border border-accent-blue/20 mb-6 font-display">
-                            <Zap className="w-6 h-6 text-blue-400" />
+                            <Zap className="w-6 h-6 text-accent-blue" />
                         </div>
                         <h3 className="text-2xl font-bold text-white mb-4">Lightning Performance</h3>
                         <p className="text-neutral-400 max-w-xs leading-relaxed text-sm md:text-base">Edge-computed results with sub-50ms latency globally across 30+ regions.</p>
@@ -25,7 +25,7 @@ export function BentoFeatures() {
                         <div className="h-2 flex-1 bg-white/5 rounded-full overflow-hidden">
                             <div className="h-full bg-accent-blue w-3/4 animate-pulse" />
                         </div>
-                        <span className="text-[10px] uppercase tracking-widest text-blue-400 font-bold">Optimizing...</span>
+                        <span className="text-[10px] uppercase tracking-widest text-accent-blue font-bold">Optimizing...</span>
                     </div>
                 </div>
 
@@ -34,7 +34,7 @@ export function BentoFeatures() {
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,_rgba(139,92,246,0.05)_0%,transparent_70%)]" />
                     <div>
                         <div className="w-12 h-12 rounded-2xl bg-accent-violet/10 flex items-center justify-center border border-accent-violet/20 mb-6">
-                            <Shield className="w-6 h-6 text-violet-400" />
+                            <Shield className="w-6 h-6 text-accent-violet" />
                         </div>
                         <h3 className="text-2xl font-bold text-white mb-4">Enterprise Security</h3>
                         <p className="text-neutral-400 max-w-xs leading-relaxed text-sm md:text-base">Bank-grade encryption and SOC2 compliance ready for your most sensitive data.</p>
@@ -51,13 +51,13 @@ export function BentoFeatures() {
 
                 {/* Small Features */}
                 <div className="md:col-span-2 rounded-3xl bg-neutral-900 border border-white/5 p-6 md:p-8 flex flex-col items-center text-center group hover:bg-neutral-800/50 transition-colors">
-                    <Globe className="w-8 h-8 text-neutral-400 mb-6 group-hover:text-blue-400 transition-colors" />
+                    <Globe className="w-8 h-8 text-neutral-400 mb-6 group-hover:text-accent-blue transition-colors" />
                     <h4 className="text-lg font-bold text-white mb-2">Global Edge</h4>
                     <p className="text-sm text-neutral-500">Deploy anywhere instantly.</p>
                 </div>
 
                 <div className="md:col-span-2 rounded-3xl bg-neutral-900 border border-white/5 p-6 md:p-8 flex flex-col items-center text-center group hover:bg-neutral-800/50 transition-colors">
-                    <Cpu className="w-8 h-8 text-neutral-400 mb-6 group-hover:text-violet-400 transition-colors" />
+                    <Cpu className="w-8 h-8 text-neutral-400 mb-6 group-hover:text-accent-violet transition-colors" />
                     <h4 className="text-lg font-bold text-white mb-2">AI Ready</h4>
                     <p className="text-sm text-neutral-500">Built-in vector support.</p>
                 </div>

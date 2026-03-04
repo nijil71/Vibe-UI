@@ -14,7 +14,7 @@ export function FooterAdvanced() {
                     </p>
                     <div className="flex gap-4">
                         {[Twitter, Github, Linkedin, Disc].map((Icon, i) => (
-                            <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-neutral-400 hover:bg-blue-500/10 hover:text-blue-400 transition-colors">
+                            <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-neutral-400 hover:bg-blue-500/10 hover:text-accent-bluetransition-colors">
                                 <Icon className="w-4 h-4" />
                             </a>
                         ))}

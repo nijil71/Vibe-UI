@@ -45,7 +45,7 @@ export function HeroSplitForm() {
                         ].map((item) => (
                             <div key={item} className="flex items-center gap-3">
                                 <div className="w-5 h-5 rounded-full bg-accent-blue/10 flex items-center justify-center shrink-0">
-                                    <Check className="w-3 h-3 text-blue-400" />
+                                    <Check className="w-3 h-3 text-accent-blue" />
                                 </div>
                                 <span className="text-neutral-300 text-sm font-medium">{item}</span>
                             </div>

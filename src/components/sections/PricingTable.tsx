@@ -77,7 +77,7 @@ export function PricingTable() {
                         <div className="space-y-4 flex-1">
                             {plan.features.map(f => (
                                 <div key={f} className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-blue-400 shrink-0" />
+                                    <Check className="w-5 h-5 text-accent-blue shrink-0" />
                                     <span className="text-sm text-neutral-300">{f}</span>
                                 </div>
                             ))}

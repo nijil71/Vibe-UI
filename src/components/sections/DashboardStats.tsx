@@ -31,7 +31,7 @@ export function DashboardStats() {
                     <div key={i} className="group p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-accent-blue/30 transition-all duration-300">
                         <div className="flex justify-between items-start mb-4">
                             <div className="p-2.5 rounded-xl bg-accent-blue/10 border border-accent-blue/20">
-                                <stat.icon className="w-5 h-5 text-blue-400" />
+                                <stat.icon className="w-5 h-5 text-accent-blue" />
                             </div>
                             <div className={`flex items-center gap-1 text-xs font-medium px-2 py-1 rounded-full ${stat.trend === "up" ? "bg-emerald-500/10 text-emerald-400" : "bg-rose-500/10 text-rose-400"}`}>
                                 {stat.trend === "up" ? <ArrowUpRight className="w-3 h-3" /> : <ArrowDownRight className="w-3 h-3" />}

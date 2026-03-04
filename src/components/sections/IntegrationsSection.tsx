@@ -59,7 +59,7 @@ export function IntegrationsSection() {
                     className="mt-20 flex flex-col items-center"
                 >
                     <div className="p-4 rounded-full bg-blue-600/10 border border-blue-500/20 mb-6">
-                        <Plus className="w-6 h-6 text-blue-400" />
+                        <Plus className="w-6 h-6 text-accent-blue" />
                     </div>
                     <p className="text-neutral-500 font-medium">And 200+ more available in our marketplace.</p>
                 </motion.div>

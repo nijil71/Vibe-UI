@@ -55,7 +55,7 @@ export function WorkflowSteps() {
                                     step.color === 'emerald' ? 'bg-emerald-500/10' : 'bg-amber-500/10'
                                 }`} />
                             <step.icon className={`w-8 h-8 relative z-10 transition-colors duration-300 ${step.color === 'blue' ? 'text-blue-400' :
-                                step.color === 'violet' ? 'text-violet-400' :
+                                step.color === 'violet' ? 'text-accent-violet' :
                                     step.color === 'emerald' ? 'text-emerald-400' : 'text-amber-400'
                                 }`} />
 

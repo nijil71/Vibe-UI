@@ -35,7 +35,7 @@ export function TeamSection() {
                                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent" />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">{member.name}</h3>
+                                <h3 className="text-xl font-bold text-white group-hover:text-accent-blue transition-colors">{member.name}</h3>
                                 <span className="text-neutral-500 text-sm font-medium">{member.role}</span>
                             </div>
                         </div>

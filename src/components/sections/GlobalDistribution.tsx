@@ -46,7 +46,7 @@ export function GlobalDistribution() {
                 </div>
 
                 <div className="order-1 lg:order-2">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-xs font-bold text-blue-400 uppercase tracking-widest mb-8">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-xs font-bold text-accent-blue uppercase tracking-widest mb-8">
                         Edge Network
                     </div>
                     <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">Zero latency, <br />worldwide.</h2>
@@ -56,7 +56,7 @@ export function GlobalDistribution() {
 
                     <div className="grid grid-cols-2 gap-8">
                         <div>
-                            <Activity className="w-6 h-6 text-blue-400 mb-4" />
+                            <Activity className="w-6 h-6 text-accent-blue mb-4" />
                             <h4 className="text-white font-bold mb-2">High Availability</h4>
                             <p className="text-neutral-500 text-sm">Automated failover and redundancy at every layer of the stack.</p>
                         </div>

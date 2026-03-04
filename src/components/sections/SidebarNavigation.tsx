@@ -100,7 +100,7 @@ export function SidebarNavigation() {
                                 <span className={cn(
                                     "ml-auto px-2 py-0.5 rounded-full text-[10px] font-bold",
                                     item.badge === "New"
-                                        ? "bg-accent-blue/10 text-blue-400 border border-accent-blue/20"
+                                        ? "bg-accent-blue/10 text-accent-blue border border-accent-blue/20"
                                         : "bg-red-500/10 text-red-400 border border-red-500/20"
                                 )}>
                                     {item.badge}

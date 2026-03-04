@@ -68,7 +68,7 @@ export function ChangelogTimeline() {
     return (
         <div className="w-full max-w-4xl mx-auto py-24 px-6">
             <div className="text-center mb-20">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-xs font-bold text-blue-400 uppercase tracking-widest mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-xs font-bold text-accent-blue uppercase tracking-widest mb-6">
                     <Tag className="w-3.5 h-3.5" /> Changelog
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">What&apos;s New</h2>
@@ -104,9 +104,9 @@ export function ChangelogTimeline() {
                                     <div className="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-white/10 transition-all">
                                         {/* Meta */}
                                         <div className="flex items-center gap-3 mb-4 flex-wrap">
-                                            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border ${config.color === "blue" ? "bg-accent-blue/10 border-accent-blue/20 text-blue-400" :
+                                            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border ${config.color === "blue" ? "bg-accent-blue/10 border-accent-blue/20 text-accent-blue" :
                                                 config.color === "amber" ? "bg-amber-500/10 border-amber-500/20 text-amber-400" :
-                                                    "bg-accent-violet/10 border-accent-violet/20 text-violet-400"
+                                                    "bg-accent-violet/10 border-accent-violet/20 text-accent-violet"
                                                 }`}>
                                                 <config.icon className="w-3 h-3" />
                                                 {config.label}
@@ -123,7 +123,7 @@ export function ChangelogTimeline() {
                                         </div>
 
                                         {/* Title & Description */}
-                                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">{release.title}</h3>
+                                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent-blue transition-colors">{release.title}</h3>
                                         <p className="text-neutral-500 text-sm leading-relaxed mb-6">{release.description}</p>
 
                                         {/* Change List */}

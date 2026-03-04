@@ -14,7 +14,7 @@ export function CookieConsent() {
 
         <div className="flex items-start gap-5 relative z-10 w-full sm:w-auto">
           <div className="p-3 bg-white/5 border border-white/10 rounded-2xl hidden shrink-0 sm:flex">
-            <Cookie className="w-6 h-6 text-blue-400" />
+            <Cookie className="w-6 h-6 text-accent-blue" />
           </div>
           <div>
             <h3 className="text-white font-bold text-lg mb-2">We value your privacy</h3>
