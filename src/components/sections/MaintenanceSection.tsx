@@ -36,7 +36,7 @@ export function MaintenanceSection() {
     return (
         <div className="w-full min-h-screen flex items-center justify-center p-6 bg-neutral-950">
             <div className="max-w-2xl w-full mx-auto relative">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/10 blur-[150px] pointer-events-none rounded-full" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-accent-blue/10 blur-[150px] pointer-events-none rounded-full" />
 
                 <div className="bg-neutral-900 border border-white/10 rounded-[3rem] p-12 relative overflow-hidden text-center shadow-2xl">
                     <div className="absolute top-0 right-0 p-8 w-64 h-64 bg-gradient-to-bl from-amber-500/20 to-transparent blur-2xl pointer-events-none" />

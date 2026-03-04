@@ -22,7 +22,7 @@ export function ApiQuickstart() {
         <div className="w-full max-w-7xl mx-auto py-16 md:py-24 px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
                 <div>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-bold text-blue-400 uppercase tracking-widest mb-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-xs font-bold text-accent-blue uppercase tracking-widest mb-6">
                         Developer SDK
                     </div>
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Deploy in seconds, not hours.</h2>
@@ -51,7 +51,7 @@ export function ApiQuickstart() {
 
                 <div className="relative mt-8 lg:mt-0">
                     {/* Decorative Glow */}
-                    <div className="absolute inset-0 bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
+                    <div className="absolute inset-0 bg-accent-blue/10 blur-[120px] rounded-full pointer-events-none" />
 
                     <div className="relative bg-neutral-900/50 backdrop-blur-xl border border-white/10 rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
                         <div className="flex items-center justify-between px-4 md:px-6 py-4 bg-white/5 border-b border-white/5">
@@ -60,7 +60,7 @@ export function ApiQuickstart() {
                                     <button
                                         key={lang.name}
                                         onClick={() => setActiveLang(i)}
-                                        className={`text-[10px] md:text-xs font-bold uppercase tracking-widest transition-colors whitespace-nowrap ${activeLang === i ? "text-blue-400" : "text-neutral-500 hover:text-white"}`}
+                                        className={`text-[10px] md:text-xs font-bold uppercase tracking-widest transition-colors whitespace-nowrap ${activeLang === i ? "text-accent-blue" : "text-neutral-500 hover:text-white"}`}
                                     >
                                         {lang.name}
                                     </button>

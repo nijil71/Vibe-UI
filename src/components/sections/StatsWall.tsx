@@ -24,15 +24,15 @@ export function StatsWall() {
                         className="group relative flex flex-col items-center text-center p-8 md:p-10 rounded-[32px] bg-neutral-900 border border-white/5 overflow-hidden"
                     >
                         {/* Background Decor */}
-                        <div className={`absolute top-0 right-0 w-32 h-32 blur-[80px] opacity-20 pointer-events-none rounded-full translate-x-1/2 -translate-y-1/2 ${stat.color === 'blue' ? 'bg-blue-500' :
+                        <div className={`absolute top-0 right-0 w-32 h-32 blur-[80px] opacity-20 pointer-events-none rounded-full translate-x-1/2 -translate-y-1/2 ${stat.color === 'blue' ? 'bg-accent-blue' :
                             stat.color === 'amber' ? 'bg-amber-500' :
-                                stat.color === 'emerald' ? 'bg-emerald-500' : 'bg-violet-500'
+                                stat.color === 'emerald' ? 'bg-emerald-500' : 'bg-accent-violet'
                             }`} />
 
-                        <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center border transition-all duration-500 ${stat.color === 'blue' ? 'bg-blue-500/10 border-blue-500/20 text-blue-400 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white' :
+                        <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center border transition-all duration-500 ${stat.color === 'blue' ? 'bg-accent-blue/10 border-accent-blue/20 text-accent-bluegroup-hover:scale-110 group-hover:bg-accent-blue group-hover:text-white' :
                             stat.color === 'amber' ? 'bg-amber-500/10 border-amber-500/20 text-amber-400 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white' :
                                 stat.color === 'emerald' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white' :
-                                    'bg-violet-500/10 border-violet-500/20 text-violet-400 group-hover:scale-110 group-hover:bg-violet-500 group-hover:text-white'
+                                    'bg-accent-violet/10 border-accent-violet/20 text-accent-violet group-hover:scale-110 group-hover:bg-accent-violet group-hover:text-white'
                             }`}>
                             <stat.icon className="w-8 h-8" />
                         </div>

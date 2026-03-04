@@ -28,14 +28,14 @@ export function TeamSection() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {team.map((member, i) => (
-                    <div key={i} className="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-blue-500/30 transition-all duration-300">
+                    <div key={i} className="group p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-accent-blue/30 transition-all duration-300">
                         <div className="flex items-center gap-6 mb-8">
                             <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-white/5 border border-white/10 group-hover:scale-105 transition-transform duration-500">
                                 <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent" />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">{member.name}</h3>
+                                <h3 className="text-xl font-bold text-white group-hover:text-accent-blue transition-colors">{member.name}</h3>
                                 <span className="text-neutral-500 text-sm font-medium">{member.role}</span>
                             </div>
                         </div>

@@ -47,7 +47,7 @@ export function CtaSection() {
                                 14-Day Free Trial
                             </span>
                             <span className="flex items-center gap-2 italic">
-                                <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                                <div className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
                                 No Credit Card
                             </span>
                         </div>

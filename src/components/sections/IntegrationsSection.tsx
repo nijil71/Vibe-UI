@@ -41,7 +41,7 @@ export function IntegrationsSection() {
                             className="group flex flex-col items-center gap-4 text-center cursor-pointer"
                         >
                             <div className={`w-20 h-20 rounded-3xl bg-neutral-900 border border-white/10 flex items-center justify-center group-hover:bg-neutral-800 transition-all group-hover:border-blue-500/30 group-hover:-translate-y-2`}>
-                                <app.icon className={`w-8 h-8 text-neutral-400 group-hover:text-blue-500 transition-colors`} />
+                                <app.icon className={`w-8 h-8 text-neutral-400 group-hover:text-accent-blue transition-colors`} />
                             </div>
                             <div>
                                 <span className="text-white font-bold block text-sm">{app.name}</span>
@@ -59,7 +59,7 @@ export function IntegrationsSection() {
                     className="mt-20 flex flex-col items-center"
                 >
                     <div className="p-4 rounded-full bg-blue-600/10 border border-blue-500/20 mb-6">
-                        <Plus className="w-6 h-6 text-blue-400" />
+                        <Plus className="w-6 h-6 text-accent-blue" />
                     </div>
                     <p className="text-neutral-500 font-medium">And 200+ more available in our marketplace.</p>
                 </motion.div>

@@ -7,7 +7,7 @@ export function NotFoundPage() {
         <div className="w-full min-h-screen flex items-center justify-center p-6 bg-neutral-950 relative overflow-hidden">
             {/* Ambient glow */}
             <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-500/10 blur-[180px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-accent-blue/10 blur-[120px] rounded-full pointer-events-none" />
 
             <div className="relative z-10 text-center max-w-2xl mx-auto">
                 {/* Glitch 404 */}
@@ -29,7 +29,7 @@ export function NotFoundPage() {
                         404
                     </h1>
                     <h1
-                        className="absolute inset-0 text-[10rem] md:text-[14rem] font-black text-blue-500/30 leading-none tracking-tighter animate-glitch-2"
+                        className="absolute inset-0 text-[10rem] md:text-[14rem] font-black text-accent-blue/30 leading-none tracking-tighter animate-glitch-2"
                         aria-hidden="true"
                     >
                         404

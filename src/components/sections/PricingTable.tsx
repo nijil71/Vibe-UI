@@ -41,9 +41,9 @@ export function PricingTable() {
                     <span className={`text-sm ${billing === "monthly" ? "text-white" : "text-neutral-500"}`}>Monthly</span>
                     <button
                         onClick={() => setBilling(b => b === "monthly" ? "yearly" : "monthly")}
-                        className="w-12 h-6 rounded-full bg-neutral-800 border border-white/10 relative p-1 transition-colors hover:border-blue-500/50"
+                        className="w-12 h-6 rounded-full bg-neutral-800 border border-white/10 relative p-1 transition-colors hover:border-accent-blue/50"
                     >
-                        <div className={`w-4 h-4 rounded-full bg-blue-500 transition-all ${billing === "yearly" ? "translate-x-6" : "translate-x-0"}`} />
+                        <div className={`w-4 h-4 rounded-full bg-accent-blue transition-all ${billing === "yearly" ? "translate-x-6" : "translate-x-0"}`} />
                     </button>
                     <span className={`text-sm ${billing === "yearly" ? "text-white" : "text-neutral-500"}`}>Yearly <span className="text-emerald-400 font-bold ml-1 text-xs">-20%</span></span>
                 </div>
@@ -51,7 +51,7 @@ export function PricingTable() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                 {plans.map((plan, i) => (
-                    <div key={i} className={`relative flex flex-col p-6 md:p-8 rounded-3xl border transition-all duration-300 ${plan.highlight ? "bg-neutral-900 border-blue-500/30 shadow-2xl shadow-blue-500/10 md:scale-105 z-10" : "bg-neutral-950 border-white/5 hover:border-white/20"}`}>
+                    <div key={i} className={`relative flex flex-col p-6 md:p-8 rounded-3xl border transition-all duration-300 ${plan.highlight ? "bg-neutral-900 border-accent-blue/30 shadow-2xl shadow-accent-blue/10 md:scale-105 z-10" : "bg-neutral-950 border-white/5 hover:border-white/20"}`}>
                         {plan.tag && (
                             <div className="absolute top-0 right-8 -translate-y-1/2 bg-blue-600 px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase tracking-widest shadow-lg shadow-blue-500/40">
                                 {plan.tag}
@@ -77,7 +77,7 @@ export function PricingTable() {
                         <div className="space-y-4 flex-1">
                             {plan.features.map(f => (
                                 <div key={f} className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-blue-400 shrink-0" />
+                                    <Check className="w-5 h-5 text-accent-blue shrink-0" />
                                     <span className="text-sm text-neutral-300">{f}</span>
                                 </div>
                             ))}
